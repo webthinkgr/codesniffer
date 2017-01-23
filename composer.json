@@ -1,0 +1,29 @@
+{
+    "name": "webthink/codesniffer",
+    "homepage": "https://github.com/webthinkgr/codesniffer",
+    "description": "This package contains my personal CodeStyle rules",
+    "keywords": [
+        "review",
+        "sniff"
+    ],
+    "authors": [
+        {
+            "name": "George Mponos",
+            "email": "gmponos@gmail.com",
+            "homepage": "https://gmponos.webthink.gr",
+            "role": "web developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "squizlabs/php_codesniffer": "2.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
+}

@@ -1,0 +1,54 @@
+# Changelog
+
+All Notable changes of `webthink/codesniffer` will be documented in this file. See this [url](http://keepachangelog.com/)
+
+## v1.0.0
+
+### Added
+- Added a custom rule for silenced errors which excludes the `fopen` and `trigger_error` functions.
+    - We already apply this rule but without the excluded functions.
+- Added a custom rule which does not allow more than one space between the `namespace` keyword and the actual namespace.
+    - The rule will be autofixable.
+- Added a custom rule that disallows the instantiation of a class without parenthesis.
+    - This rule is applied according to [PSR-12][PSR-12] draft version.
+    - The rule will be autofixable.
+- Added a custom rule for disallowing the type cast using long form types.
+    - This rule is applied according to [PSR-12][PSR-12] draft version and according to our team guidelines.
+    - Long forms are `(integer)` and `(boolean)` and Short forms are `(int)` and `(bool)`.
+- Added a custom rule for disallowing deprecated PHPDoc tags according to [PSR-5][PSR-5] draft version.
+    - It will be a warning.
+- Added a [ruleset.xml](Webthink/ruleset.xml) that has the basic staff of rules.
+    - Developers can override everything on the projects that the ruleset is included.
+- Created a new custom sniff that adds a comma to the last element of a multiline array.
+    - If in the future you add more elements to the array you will change only one line not two.
+- Created a new custom sniff that ensures that params in PHPDoc use short forms.
+    - This rule is applied according to [PSR-12][PSR-12] draft version.
+    - Long forms are `(integer)` and `(boolean)` and Short forms are `(int)` and `(bool)`.
+- Created a new custom sniff that ensures that no `ElseIf` is used.
+    - It will be muted in ruleset.
+- Created a new custom sniff that ensures the number of methods in a Class.
+    - Maximum methods before warning are 10.
+    - Maximum methods before error are 15.
+    - Developers can customize this per project.
+- Created a new custom sniff to add an empty line after the `<?php` tag.
+- Created a new custom sniff that ensures that all uses are in Alphabetical order.
+    - It will be muted in ruleset.
+- Created a new custom sniff for forbidden function which extends the `Generic.PHP.ForbiddenFunctions` rule.
+    - It was created in order to override the forbidden functions of the `Generic` suite.
+    - Functions forbidden:
+        - `sizeof` use count instead. Size of is an alias in PHP
+        - `delete` use unset. Who the hell uses delete?
+        - `print` use echo.
+        - `var_dump` is not allowed.
+        - `die` is not allowed.
+        - `exit` is not allowed.
+        - `is_null` is not allowed.
+        - `create_function` is not allowed.
+        - `curl_init` use Guzzle instead.
+        - `ldap_sort` is deprecated in PHP.
+        - `password_hash` is deprecated in PHP.
+        - `mcrypt_encrypt` is deprecated in PHP.
+        - `mcrypt_create_iv` is deprecated in PHP.
+
+[PSR-5]: https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md
+[PSR-12]: https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md
