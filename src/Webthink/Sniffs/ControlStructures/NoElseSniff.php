@@ -1,5 +1,10 @@
 <?php
 
+namespace WebthinkSniffer;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
 /**
  * Avoid using `elseif` tokens.
  * This rule is an indication that your code needs refactoring.
@@ -9,9 +14,8 @@
  *
  * @author George Mponos <gmponos@gmail.com>
  */
-class Webthink_Sniffs_ControlStructures_NoElseSniff implements PHP_CodeSniffer_Sniff
+class NoElseSniff implements Sniff
 {
-
     /**
      * Supported list of tokenizers supported by this sniff.
      *
@@ -41,7 +45,7 @@ class Webthink_Sniffs_ControlStructures_NoElseSniff implements PHP_CodeSniffer_S
      * @param int                   $stackPtr  The position of the current token in the stack passed in $tokens.
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         $phpcsFile->addWarning('"Else" or "ElseIf" should be avoided', $stackPtr);
     }

@@ -1,5 +1,10 @@
 <?php
 
+namespace WebthinkSniffer;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
 /**
  * Asserts that function comments use the short form for types
  * - bool instead of boolean
@@ -10,9 +15,8 @@
  * @see    https://github.com/cakephp/cakephp-codesniffer/blob/master/CakePHP/Sniffs/Commenting/FunctionCommentTypeSniff.php
  * @author George Mponos <gmponos@gmail.com>
  */
-class Webthink_Sniffs_Commenting_FunctionCommentTypeSniff implements PHP_CodeSniffer_Sniff
+class FunctionCommentTypeSniff implements Sniff
 {
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -26,12 +30,12 @@ class Webthink_Sniffs_Commenting_FunctionCommentTypeSniff implements PHP_CodeSni
     /**
      * Processes this test, when one of its tokens is encountered.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+     * @param File $phpcsFile The file being scanned.
      * @param int                  $stackPtr  The position of the current token
      *                                        in the stack passed in $tokens.
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -66,13 +70,13 @@ class Webthink_Sniffs_Commenting_FunctionCommentTypeSniff implements PHP_CodeSni
     }
 
     /**
-     * @param PHP_CodeSniffer_File $phpcsFile
+     * @param File $phpcsFile
      * @param int                  $stackPtr
      * @param string               $from
      * @param string               $to
      * @return void
      */
-    protected function _check(PHP_CodeSniffer_File $phpcsFile, $stackPtr, $from, $to)
+    protected function _check(File $phpcsFile, $stackPtr, $from, $to)
     {
         $tokens = $phpcsFile->getTokens();
         $content = $tokens[$stackPtr]['content'];

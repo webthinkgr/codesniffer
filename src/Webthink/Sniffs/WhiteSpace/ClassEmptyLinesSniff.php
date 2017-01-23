@@ -1,5 +1,10 @@
 <?php
 
+namespace WebthinkSniffer;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
 /**
  * Checks that there are not more than 2 empty lines following each other.
  *
@@ -10,9 +15,8 @@
  * @author  George Mponos <gmponos@gmail.com>
  * @see     Squiz_Sniffs_WhiteSpace_SuperfluousWhitespaceSniff
  */
-class Webthink_Sniffs_WhiteSpace_ClassEmptyLinesSniff implements PHP_CodeSniffer_Sniff
+class ClassEmptyLinesSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -35,15 +39,16 @@ class Webthink_Sniffs_WhiteSpace_ClassEmptyLinesSniff implements PHP_CodeSniffer
     /**
      * Processes this test, when one of its tokens is encountered.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token in the stack passed in $tokens.
+     * @param File $phpcsFile The file being scanned.
+     * @param int  $stackPtr  The position of the current token in the stack passed in $tokens.
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
-        if (($phpcsFile->hasCondition($stackPtr, T_CLASS) === true || $phpcsFile->hasCondition($stackPtr, T_CLOSURE) === true)
+        if (
+            ($phpcsFile->hasCondition($stackPtr, T_CLASS) || $phpcsFile->hasCondition($stackPtr, T_CLOSURE))
             && $tokens[($stackPtr - 1)]['line'] < $tokens[$stackPtr]['line']
             && $tokens[($stackPtr - 2)]['line'] === $tokens[($stackPtr - 1)]['line']
         ) {
@@ -53,8 +58,12 @@ class Webthink_Sniffs_WhiteSpace_ClassEmptyLinesSniff implements PHP_CodeSniffer
             $next = $phpcsFile->findNext(T_WHITESPACE, $stackPtr, null, true);
             $lines = ($tokens[$next]['line'] - $tokens[$stackPtr]['line']);
             if ($lines > 1) {
-                $error = 'Classes must not contain multiple empty lines in a row; found %s empty lines';
-                $fix = $phpcsFile->addFixableError($error, $stackPtr, 'EmptyLines', [$lines]);
+                $fix = $phpcsFile->addFixableError(
+                    'Classes must not contain multiple empty lines in a row; found %s empty lines',
+                    $stackPtr,
+                    'EmptyLines',
+                    [$lines]
+                );
                 if ($fix === true) {
                     $phpcsFile->fixer->beginChangeset();
                     $i = $stackPtr;

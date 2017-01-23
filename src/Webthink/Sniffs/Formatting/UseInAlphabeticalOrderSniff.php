@@ -1,21 +1,24 @@
 <?php
 
+namespace WebthinkSniffer;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
 /**
  * Ensures all the `use` are in alphabetical order.
  * The rule was copied from `cakephp/cakephp-codesniffer`
  *
  * @see https://github.com/cakephp/cakephp-codesniffer/blob/master/CakePHP/Sniffs/Formatting/UseInAlphabeticalOrderSniff.php
  */
-class Webthink_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_CodeSniffer_Sniff
+class UseInAlphabeticalOrderSniff implements Sniff
 {
-
     /**
      * Processed files
      *
      * @var array
      */
     protected $_processed = [];
-
     /**
      * The list of use statements, their content and scope.
      *
@@ -36,11 +39,11 @@ class Webthink_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_Code
     /**
      * Processes this test, when one of its tokens is encountered.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+     * @param File $phpcsFile The file being scanned.
      * @param integer              $stackPtr  The position of the current token in the stack passed in $tokens.
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         if (isset($this->_processed[$phpcsFile->getFilename()])) {
             return;
@@ -79,7 +82,7 @@ class Webthink_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_Code
     /**
      * Check all the use tokens in a file.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile The file to check.
+     * @param File $phpcsFile The file to check.
      * @param integer              $stackPtr  The index of the first use token.
      * @return void
      */
@@ -121,7 +124,7 @@ class Webthink_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_Code
     /**
      * Check if the current stackPtr is a use token that is for a closure.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile
+     * @param File $phpcsFile
      * @param int                  $stackPtr
      * @return bool
      */

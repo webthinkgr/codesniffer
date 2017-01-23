@@ -1,17 +1,17 @@
 <?php
 
-if (class_exists('Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true) === false) {
-    throw new PHP_CodeSniffer_Exception('Class Generic_Sniffs_PHP_ForbiddenFunctionsSniff not found');
-}
+namespace WebthinkSniffer;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * This rule is created to override the default Forbidden functions
  *
  * @author George Mponos <gmponos@gmail.com>
  */
-class Webthink_Sniffs_PHP_ForbiddenFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
+class ForbiddenFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
 {
-
     /**
      * A list of forbidden functions with their alternatives.
      *
@@ -35,5 +35,4 @@ class Webthink_Sniffs_PHP_ForbiddenFunctionsSniff extends Generic_Sniffs_PHP_For
         'mcrypt_encrypt' => null,  //is deprecated in PHP 7.1.
         'mcrypt_create_iv' => null,  //is deprecated in PHP 7.1.
     ];
-
 }//end class

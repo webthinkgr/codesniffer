@@ -1,28 +1,30 @@
 <?php
 
+namespace WebthinkSniffer;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
 /**
  * Check for amount of methods per class, part of "Keep your classes small"
  * The rule was inspired by Object Calisthenics.
  *
  * @author George Mponos <gmponos@gmail.com>
  */
-class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffer_Sniff
+class MethodPerClassLimitSniff implements Sniff
 {
-
     /**
      * Maximum amount of methods per class.
      *
      * @var int
      */
     public $maxCount = 10;
-
     /**
      * Absolute maximum amount of methods per class
      *
      * @var int
      */
     public $absoluteMaxCount = 15;
-
     /**
      * Supported list of tokenizers supported by this sniff.
      *
@@ -46,7 +48,7 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
         ];
     }
 
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
         $token = $tokens[$stackPtr];
@@ -76,7 +78,7 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
      * @param int                   $stackPtr  The position of the current token in the stack passed in $tokens.
      * @return array
      */
-    private function getClassMethods(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    private function getClassMethods(File $phpcsFile, $stackPtr)
     {
         $pointer = $stackPtr;
         $methods = [];

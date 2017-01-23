@@ -1,14 +1,18 @@
 <?php
 
+namespace WebthinkSniffer;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
 /**
  * Checks the usage of deprecated PHPDoc tags according to PSR-5.
  *
  * @package Codesniffer
  * @see     http://pear.php.net/package/PHP_CodeSniffer
  */
-class Webthink_Sniffs_Commenting_DeprecatedTagsSniff implements PHP_CodeSniffer_Sniff
+class DeprecatedTagsSniff implements Sniff
 {
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -22,11 +26,11 @@ class Webthink_Sniffs_Commenting_DeprecatedTagsSniff implements PHP_CodeSniffer_
     /**
      * Processes this test, when one of its tokens is encountered.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token in the stack passed in $tokens.
+     * @param File $phpcsFile The file being scanned.
+     * @param int  $stackPtr  The position of the current token in the stack passed in $tokens.
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
         $content = $tokens[$stackPtr]['content'];

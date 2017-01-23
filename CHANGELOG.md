@@ -17,7 +17,7 @@ All Notable changes of `webthink/codesniffer` will be documented in this file. S
     - Long forms are `(integer)` and `(boolean)` and Short forms are `(int)` and `(bool)`.
 - Added a custom rule for disallowing deprecated PHPDoc tags according to [PSR-5][PSR-5] draft version.
     - It will be a warning.
-- Added a [ruleset.xml](Webthink/ruleset.xml) that has the basic staff of rules.
+- Added a [ruleset.xml](src/Webthink/ruleset.xml) that has the basic staff of rules.
     - Developers can override everything on the projects that the ruleset is included.
 - Created a new custom sniff that adds a comma to the last element of a multiline array.
     - If in the future you add more elements to the array you will change only one line not two.

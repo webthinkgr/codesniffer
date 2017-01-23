@@ -1,18 +1,21 @@
 <?php
 
+namespace WebthinkSniffer;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
 /**
  * Class create instance Test.
- * Checks the declaration of the class is correct.
- * This sniff was copied from CodingStandard
+ * Checks the declaration of the class is correct. This sniff was copied from CodingStandard
  *
  * @package Codesniffer
  * @author  Peter Philipp <peter.philipp@cando-image.com>
  * @author  Alexander Obuhovich <aik.bold@gmail.com>
  * @see     https://github.com/aik099/CodingStandard
  */
-class Webthink_Sniffs_Classes_ClassCreateInstanceSniff implements PHP_CodeSniffer_Sniff
+final class ClassCreateInstanceSniff implements Sniff
 {
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -26,11 +29,11 @@ class Webthink_Sniffs_Classes_ClassCreateInstanceSniff implements PHP_CodeSniffe
     /**
      * Processes this test, when one of its tokens is encountered.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token in the stack passed in $tokens.
+     * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
+     * @param int                         $stackPtr  The position of the current token in the stack passed in $tokens.
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         $scopeEnd = null;
         $tokens = $phpcsFile->getTokens();
@@ -50,8 +53,11 @@ class Webthink_Sniffs_Classes_ClassCreateInstanceSniff implements PHP_CodeSniffe
         );
 
         if ($nextParenthesis === false || $tokens[$nextParenthesis]['line'] !== $tokens[$stackPtr]['line']) {
-            $error = 'Calling class constructors must always include parentheses';
-            $fix = $phpcsFile->addFixableError($error, $stackPtr);
+            $fix = $phpcsFile->addFixableError(
+                'Calling class constructors must always include parentheses',
+                $stackPtr,
+                'missingParentheses'
+            );
             if ($fix === true) {
                 $phpcsFile->fixer->beginChangeset();
                 $classNameEnd = $phpcsFile->findNext([
@@ -68,11 +74,14 @@ class Webthink_Sniffs_Classes_ClassCreateInstanceSniff implements PHP_CodeSniffe
 
                 $phpcsFile->fixer->addContentBefore($classNameEnd, '()');
                 $phpcsFile->fixer->endChangeset();
-            }//end if
+            }
         } else {
             if ($tokens[($nextParenthesis - 1)]['code'] === T_WHITESPACE) {
-                $error = 'Between the class name and the opening parenthesis spaces are not welcome';
-                $fix = $phpcsFile->addFixableError($error, ($nextParenthesis - 1));
+                $fix = $phpcsFile->addFixableError(
+                    'Between the class name and the opening parenthesis spaces are not welcome',
+                    ($nextParenthesis - 1),
+                    'spacesNotAllowed'
+                );
                 if ($fix === true) {
                     $phpcsFile->fixer->beginChangeset();
                     $phpcsFile->fixer->replaceToken(($nextParenthesis - 1), '');

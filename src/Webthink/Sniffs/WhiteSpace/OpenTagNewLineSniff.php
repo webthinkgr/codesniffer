@@ -1,12 +1,16 @@
 <?php
 
+namespace WebthinkSniffer;
+
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
+
 /**
  * Checks that there is exactly one newline after the PHP open tag.
  * The rule was copied from `drupal/coder`
  */
-class Webthink_Sniffs_WhiteSpace_OpenTagNewLineSniff implements PHP_CodeSniffer_Sniff
+class OpenTagNewLineSniff implements Sniff
 {
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -14,18 +18,20 @@ class Webthink_Sniffs_WhiteSpace_OpenTagNewLineSniff implements PHP_CodeSniffer_
      */
     public function register()
     {
-        return [T_OPEN_TAG];
+        return [
+            T_OPEN_TAG,
+        ];
     }
 
     /**
      * Processes this test, when one of its tokens is encountered.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile The PHP_CodeSniffer file where the token was found.
+     * @param File $phpcsFile The PHP_CodeSniffer file where the token was found.
      * @param int                  $stackPtr  The position in the PHP_CodeSniffer file's token stack where the token
      *                                        was found.
      * @return int End of the stack to skip the rest of the file.
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
