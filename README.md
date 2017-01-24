@@ -1,8 +1,18 @@
-# webthink/codesniffer
+# WebthinkSniffer
 
-This package is a collection of Codesniffer rules
+A collection of Codesniffer rules.
 
 ## Description
+
+This package is a collection of Codesniffer rules. Some of them are custom rules and some of them are
+copied from other packages.
+
+**Why?**
+1. I have found various rules from many packages. In order to apply all these rules in to a project of mine
+   I would have to require all these packages and create a `*.xml` file with the rules.
+   This would not be handy. I don't like to be dependent in so many packages.
+   Furthermore some of these rules I needed them altered to server my needs.
+2. I don't like the CodeStyle that `squizlab/codesniffer` has. 
 
 ## Install
 
@@ -16,12 +26,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Testing
 
-Assuming you have PHPUnit installed system wide using one of the methods stated
-[here](http://phpunit.de/manual/current/en/installation.html), you can run the
-tests for this package by doing the following:
-
-1. Copy `phpunit.xml.dist` to `phpunit.xml`.
-2. Run `phpunit` from bash.
+For now there are no test. I hope I will write some soon.
 
 ## Todo
 
