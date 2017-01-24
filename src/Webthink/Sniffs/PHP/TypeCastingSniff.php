@@ -4,6 +4,7 @@ namespace WebthinkSniffer;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Util\Tokens;
 
 /**
  * Asserts that type casts are in the short form:
@@ -16,28 +17,18 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @see    https://github.com/cakephp/cakephp-codesniffer/blob/master/CakePHP/Sniffs/PHP/TypeCastingSniff.php
  * @author George Mponos <gmponos@gmail.com>
  */
-class TypeCastingSniff implements Sniff
+final class TypeCastingSniff implements Sniff
 {
     /**
-     * Returns an array of tokens this test wants to listen for.
-     *
-     * Note, that this sniff only checks the value and casing of a cast.
-     * It does not check for whitespace issues regarding casts.
-     *
-     * @return array
+     * @inheritdoc
      */
     public function register()
     {
-        return array_merge(PHP_CodeSniffer_Tokens::$castTokens, [T_BOOLEAN_NOT]);
+        return array_merge(Tokens::$castTokens, [T_BOOLEAN_NOT]);
     }
 
     /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param File $phpcsFile The file being scanned.
-     * @param integer              $stackPtr  The position of the current token in the
-     *                                        stack passed in $tokens.
-     * @return void
+     * @inheritdoc
      */
     public function process(File $phpcsFile, $stackPtr)
     {
@@ -49,12 +40,13 @@ class TypeCastingSniff implements Sniff
             if (!$nextToken) {
                 return;
             }
+
             if ($tokens[$nextToken]['code'] != T_BOOLEAN_NOT) {
                 return;
             }
+
             $error = 'Usage of !! cast is not allowed. Please use (bool) to cast.';
             $phpcsFile->addError($error, $stackPtr, 'NotAllowed');
-
             return;
         }
 

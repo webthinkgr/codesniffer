@@ -10,12 +10,10 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * @package Codesniffer
  */
-class NamespaceSpaceSniff implements Sniff
+final class NamespaceSpaceSniff implements Sniff
 {
     /**
-     * Returns an array of tokens this test wants to listen for.
-     *
-     * @return array
+     * @inheritdoc
      */
     public function register()
     {
@@ -23,11 +21,7 @@ class NamespaceSpaceSniff implements Sniff
     }
 
     /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token in the stack passed in $tokens.
-     * @return void
+     * @inheritdoc
      */
     public function process(File $phpcsFile, $stackPtr)
     {

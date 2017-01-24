@@ -17,9 +17,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 final class ClassCreateInstanceSniff implements Sniff
 {
     /**
-     * Returns an array of tokens this test wants to listen for.
-     *
-     * @return integer[]
+     * @inheritdoc
      */
     public function register()
     {
@@ -27,11 +25,7 @@ final class ClassCreateInstanceSniff implements Sniff
     }
 
     /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
-     * @param int                         $stackPtr  The position of the current token in the stack passed in $tokens.
-     * @return void
+     * @inheritdoc
      */
     public function process(File $phpcsFile, $stackPtr)
     {
@@ -60,11 +54,12 @@ final class ClassCreateInstanceSniff implements Sniff
             );
             if ($fix === true) {
                 $phpcsFile->fixer->beginChangeset();
-                $classNameEnd = $phpcsFile->findNext([
-                    T_WHITESPACE,
-                    T_NS_SEPARATOR,
-                    T_STRING,
-                ],
+                $classNameEnd = $phpcsFile->findNext(
+                    [
+                        T_WHITESPACE,
+                        T_NS_SEPARATOR,
+                        T_STRING,
+                    ],
                     ($stackPtr + 1),
                     null,
                     true,

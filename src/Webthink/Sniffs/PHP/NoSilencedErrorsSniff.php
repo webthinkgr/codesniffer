@@ -3,7 +3,7 @@
 namespace WebthinkSniffer;
 
 use PHP_CodeSniffer\Files\File;
-use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\NoSilencedErrorsSniff as GenericNoSilencedErrorsSniff;
 
 /**
  * Throws an error or warning when any code prefixed with an asperand is encountered.
@@ -22,21 +22,23 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @author  Alexander Obuhovich <aik.bold@gmail.com>
  * @see     https://github.com/aik099/CodingStandard
  */
-class NoSilencedErrorsSniff extends Generic_Sniffs_PHP_NoSilencedErrorsSniff
+final class NoSilencedErrorsSniff extends GenericNoSilencedErrorsSniff
 {
     /**
-     * If true, an error will be thrown; otherwise a warning.
-     *
-     * @var bool
+     * @var array
+     */
+    public $allowedFunctions = [
+        'trigger_error',
+        'fopen',
+    ];
+
+    /**
+     * @inheritDoc
      */
     public $error = true;
 
     /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token in the stack passed in $tokens.
-     * @return void
+     * @inheritdoc
      */
     public function process(File $phpcsFile, $stackPtr)
     {
@@ -44,22 +46,11 @@ class NoSilencedErrorsSniff extends Generic_Sniffs_PHP_NoSilencedErrorsSniff
         $secondTokenData = $tokens[($stackPtr + 1)];
         $thirdTokenData = $tokens[($stackPtr + 2)];
 
-        // This is a silenced "trigger_error" function call.
         if (
             $secondTokenData['code'] === T_STRING
-            && $secondTokenData['content'] === 'trigger_error'
+            && in_array($secondTokenData['content'], $this->allowedFunctions)
             && $thirdTokenData['code'] === T_OPEN_PARENTHESIS
-            && isset($thirdTokenData['parenthesis_closer']) === true
-        ) {
-            return;
-        }
-
-        // allow silencing fopen functions.
-        if (
-            $secondTokenData['code'] === T_STRING
-            && $secondTokenData['content'] === 'fopen'
-            && $thirdTokenData['code'] === T_OPEN_PARENTHESIS
-            && isset($thirdTokenData['parenthesis_closer']) === true
+            && isset($thirdTokenData['parenthesis_closer'])
         ) {
             return;
         }

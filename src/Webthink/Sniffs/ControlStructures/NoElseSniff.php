@@ -14,7 +14,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * @author George Mponos <gmponos@gmail.com>
  */
-class NoElseSniff implements Sniff
+final class NoElseSniff implements Sniff
 {
     /**
      * Supported list of tokenizers supported by this sniff.

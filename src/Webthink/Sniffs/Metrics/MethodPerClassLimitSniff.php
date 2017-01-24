@@ -11,7 +11,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * @author George Mponos <gmponos@gmail.com>
  */
-class MethodPerClassLimitSniff implements Sniff
+final class MethodPerClassLimitSniff implements Sniff
 {
     /**
      * Maximum amount of methods per class.
@@ -19,12 +19,14 @@ class MethodPerClassLimitSniff implements Sniff
      * @var int
      */
     public $maxCount = 10;
+
     /**
      * Absolute maximum amount of methods per class
      *
      * @var int
      */
-    public $absoluteMaxCount = 15;
+    public $absoluteMaxCount = 20;
+
     /**
      * Supported list of tokenizers supported by this sniff.
      *
@@ -35,9 +37,7 @@ class MethodPerClassLimitSniff implements Sniff
     ];
 
     /**
-     * Registers the tokens that this sniff wants to listen for.
-     *
-     * @return integer[]
+     * @inheritdoc
      */
     public function register()
     {
@@ -48,6 +48,9 @@ class MethodPerClassLimitSniff implements Sniff
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
@@ -56,26 +59,26 @@ class MethodPerClassLimitSniff implements Sniff
         $methods = $this->getClassMethods($phpcsFile, $stackPtr);
         $methodCount = count($methods);
 
-        switch (true) {
-            case ($methodCount > $this->absoluteMaxCount):
-                $message = 'Your %s has %d methods, must be less or equals than %d methods';
-                $error = sprintf($message, $tokenType, $methodCount, $this->absoluteMaxCount);
-                $phpcsFile->addError($error, $stackPtr, sprintf('%sTooManyMethods', ucfirst($tokenType)));
-                break;
+        if ($methodCount > $this->absoluteMaxCount) {
+            $message = 'Your %s has %d methods, must be less or equals than %d methods';
+            $error = sprintf($message, $tokenType, $methodCount, $this->absoluteMaxCount);
+            $phpcsFile->addError($error, $stackPtr, sprintf('%sTooManyMethods', ucfirst($tokenType)));
+            return;
+        }
 
-            case ($methodCount > $this->maxCount):
-                $message = 'Your %s has %d methods, consider refactoring (should be less or equals than %d methods)';
-                $warning = sprintf($message, $tokenType, $methodCount, $this->maxCount);
-                $phpcsFile->addWarning($warning, $stackPtr, sprintf('%sTooManyMethods', ucfirst($tokenType)));
-                break;
+        if ($methodCount > $this->maxCount) {
+            $message = 'Your %s has %d methods, consider refactoring (should be less or equals than %d methods)';
+            $warning = sprintf($message, $tokenType, $methodCount, $this->maxCount);
+            $phpcsFile->addWarning($warning, $stackPtr, sprintf('%sTooManyMethods', ucfirst($tokenType)));
+            return;
         }
     }
 
     /**
      * Retrieve the list of class methods' pointers.
      *
-     * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                   $stackPtr  The position of the current token in the stack passed in $tokens.
+     * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned
+     * @param int                         $stackPtr  The position of the current token in the stack passed in $tokens.
      * @return array
      */
     private function getClassMethods(File $phpcsFile, $stackPtr)

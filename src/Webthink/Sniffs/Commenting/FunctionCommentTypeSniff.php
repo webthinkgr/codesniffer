@@ -4,6 +4,7 @@ namespace WebthinkSniffer;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Util\Tokens;
 
 /**
  * Asserts that function comments use the short form for types
@@ -15,12 +16,10 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @see    https://github.com/cakephp/cakephp-codesniffer/blob/master/CakePHP/Sniffs/Commenting/FunctionCommentTypeSniff.php
  * @author George Mponos <gmponos@gmail.com>
  */
-class FunctionCommentTypeSniff implements Sniff
+final class FunctionCommentTypeSniff implements Sniff
 {
     /**
-     * Returns an array of tokens this test wants to listen for.
-     *
-     * @return array
+     * @inheritdoc
      */
     public function register()
     {
@@ -28,19 +27,14 @@ class FunctionCommentTypeSniff implements Sniff
     }
 
     /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token
-     *                                        in the stack passed in $tokens.
-     * @return void
+     * @inheritdoc
      */
     public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
         // We are only interested in function/class/interface doc block comments.
-        $nextToken = $phpcsFile->findNext(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr + 1), null, true);
+        $nextToken = $phpcsFile->findNext(Tokens::$emptyTokens, ($stackPtr + 1), null, true);
         $ignore = [
             T_CLASS,
             T_INTERFACE,
@@ -54,7 +48,7 @@ class FunctionCommentTypeSniff implements Sniff
 
         if (in_array($tokens[$nextToken]['code'], $ignore) === false) {
             // Could be a file comment.
-            $prevToken = $phpcsFile->findPrevious(PHP_CodeSniffer_Tokens::$emptyTokens, ($stackPtr - 1), null, true);
+            $prevToken = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($stackPtr - 1), null, true);
             if ($tokens[$prevToken]['code'] !== T_OPEN_TAG) {
                 return;
             }

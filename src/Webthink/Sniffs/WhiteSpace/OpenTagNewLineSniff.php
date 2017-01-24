@@ -9,7 +9,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * Checks that there is exactly one newline after the PHP open tag.
  * The rule was copied from `drupal/coder`
  */
-class OpenTagNewLineSniff implements Sniff
+final class OpenTagNewLineSniff implements Sniff
 {
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -27,8 +27,7 @@ class OpenTagNewLineSniff implements Sniff
      * Processes this test, when one of its tokens is encountered.
      *
      * @param File $phpcsFile The PHP_CodeSniffer file where the token was found.
-     * @param int                  $stackPtr  The position in the PHP_CodeSniffer file's token stack where the token
-     *                                        was found.
+     * @param int  $stackPtr  The position in the PHP_CodeSniffer file's token stack where the token was found.
      * @return int End of the stack to skip the rest of the file.
      */
     public function process(File $phpcsFile, $stackPtr)

@@ -4,6 +4,7 @@ namespace WebthinkSniffer;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Util\Tokens;
 
 /**
  * Ensure that last element of multiline array has a comma
@@ -15,9 +16,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 final class LastElementCommaSniff implements Sniff
 {
     /**
-     * Returns an array of tokens this test wants to listen for.
-     *
-     * @return array
+     * @inheritdoc
      */
     public function register()
     {
@@ -28,11 +27,7 @@ final class LastElementCommaSniff implements Sniff
     }
 
     /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param File $phpcsFile The file being scanned.
-     * @param int  $stackPtr  The position of the current token in the stack passed in $tokens.
-     * @return void
+     * @inheritdoc
      */
     public function process(File $phpcsFile, $stackPtr)
     {
@@ -52,7 +47,7 @@ final class LastElementCommaSniff implements Sniff
         }
 
         $lastItem = $phpcsFile->findPrevious(
-            PHP_CodeSniffer_Tokens::$emptyTokens,
+            Tokens::$emptyTokens,
             ($tokens[$stackPtr][$parenthesis_closer] - 1),
             $stackPtr,
             true
@@ -75,7 +70,7 @@ final class LastElementCommaSniff implements Sniff
             $tokens[$lastItem]['code'] !== T_COMMA
             && $tokens[($lastItem + 1)]['code'] !== T_CLOSE_PARENTHESIS
             && $tokens[($lastItem + 1)]['code'] !== T_CLOSE_SHORT_ARRAY
-            && isset(PHP_CodeSniffer_Tokens::$heredocTokens[$tokens[$lastItem]['code']]) === false
+            && isset(Tokens::$heredocTokens[$tokens[$lastItem]['code']]) === false
         ) {
             $data = [$tokens[$lastItem]['content']];
             $fix = $phpcsFile->addFixableError(

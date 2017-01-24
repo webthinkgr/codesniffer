@@ -11,7 +11,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * @see https://github.com/cakephp/cakephp-codesniffer/blob/master/CakePHP/Sniffs/Formatting/UseInAlphabeticalOrderSniff.php
  */
-class UseInAlphabeticalOrderSniff implements Sniff
+final class UseInAlphabeticalOrderSniff implements Sniff
 {
     /**
      * Processed files
@@ -19,6 +19,7 @@ class UseInAlphabeticalOrderSniff implements Sniff
      * @var array
      */
     protected $_processed = [];
+
     /**
      * The list of use statements, their content and scope.
      *
@@ -27,9 +28,7 @@ class UseInAlphabeticalOrderSniff implements Sniff
     protected $_uses = [];
 
     /**
-     * Returns an array of tokens this test wants to listen for.
-     *
-     * @return array
+     * @inheritdoc
      */
     public function register()
     {
@@ -37,18 +36,14 @@ class UseInAlphabeticalOrderSniff implements Sniff
     }
 
     /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param File $phpcsFile The file being scanned.
-     * @param integer              $stackPtr  The position of the current token in the stack passed in $tokens.
-     * @return void
+     * @inheritdoc
      */
     public function process(File $phpcsFile, $stackPtr)
     {
-        if (isset($this->_processed[$phpcsFile->getFilename()])) {
+        $filename = $phpcsFile->getFilename();
+        if (isset($this->_processed[$filename])) {
             return;
         }
-        $filename = $phpcsFile->getFilename();
 
         $this->_uses = [];
         $next = $stackPtr;
@@ -59,7 +54,7 @@ class UseInAlphabeticalOrderSniff implements Sniff
         }
 
         // Prevent multiple uses in the same file from entering
-        $this->_processed[$phpcsFile->getFilename()] = true;
+        $this->_processed[$filename] = true;
 
         foreach ($this->_uses as $scope => $used) {
             $defined = $sorted = array_keys($used);
@@ -82,8 +77,8 @@ class UseInAlphabeticalOrderSniff implements Sniff
     /**
      * Check all the use tokens in a file.
      *
-     * @param File $phpcsFile The file to check.
-     * @param integer              $stackPtr  The index of the first use token.
+     * @param File    $phpcsFile The file to check.
+     * @param integer $stackPtr  The index of the first use token.
      * @return void
      */
     protected function _checkUseToken($phpcsFile, $stackPtr)
@@ -125,7 +120,7 @@ class UseInAlphabeticalOrderSniff implements Sniff
      * Check if the current stackPtr is a use token that is for a closure.
      *
      * @param File $phpcsFile
-     * @param int                  $stackPtr
+     * @param int  $stackPtr
      * @return bool
      */
     protected function _isClosure($phpcsFile, $stackPtr)

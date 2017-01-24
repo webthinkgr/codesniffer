@@ -8,15 +8,22 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 /**
  * Checks that there are not more than 2 empty lines following each other.
  *
- * This rule was mostly copied from Squiz_Sniffs_WhiteSpace_SuperfluousWhitespaceSniff and altered
+ * This rule was mostly copied from Squiz.WhiteSpace.SuperfluousWhitespaceSniff and altered
  * in order not to allow multiple empty lines inside classes.
  *
  * @package Codesniffer
  * @author  George Mponos <gmponos@gmail.com>
- * @see     Squiz_Sniffs_WhiteSpace_SuperfluousWhitespaceSniff
+ * @see     \PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\SuperfluousWhitespaceSniff
  */
-class ClassEmptyLinesSniff implements Sniff
+final class ClassEmptyLinesSniff implements Sniff
 {
+    /**
+     * The number of maximum allowed lines inside a class
+     *
+     * @var int
+     */
+    public $allowedLines = 1;
+
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -27,9 +34,7 @@ class ClassEmptyLinesSniff implements Sniff
     ];
 
     /**
-     * Returns an array of tokens this test wants to listen for.
-     *
-     * @return array
+     * @inheritdoc
      */
     public function register()
     {
@@ -37,11 +42,7 @@ class ClassEmptyLinesSniff implements Sniff
     }
 
     /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param File $phpcsFile The file being scanned.
-     * @param int  $stackPtr  The position of the current token in the stack passed in $tokens.
-     * @return void
+     * @inheritdoc
      */
     public function process(File $phpcsFile, $stackPtr)
     {
@@ -52,29 +53,31 @@ class ClassEmptyLinesSniff implements Sniff
             && $tokens[($stackPtr - 1)]['line'] < $tokens[$stackPtr]['line']
             && $tokens[($stackPtr - 2)]['line'] === $tokens[($stackPtr - 1)]['line']
         ) {
-            // This is an empty line and the line before this one is not
-            // empty, so this could be the start of a multiple empty
-            // line block.
+            // This is an empty line and the line before this one is not empty, so this could be
+            // the start of a multiple empty line block.
             $next = $phpcsFile->findNext(T_WHITESPACE, $stackPtr, null, true);
             $lines = ($tokens[$next]['line'] - $tokens[$stackPtr]['line']);
-            if ($lines > 1) {
-                $fix = $phpcsFile->addFixableError(
-                    'Classes must not contain multiple empty lines in a row; found %s empty lines',
-                    $stackPtr,
-                    'EmptyLines',
-                    [$lines]
-                );
-                if ($fix === true) {
-                    $phpcsFile->fixer->beginChangeset();
-                    $i = $stackPtr;
-                    while ($tokens[$i]['line'] !== $tokens[$next]['line']) {
-                        $phpcsFile->fixer->replaceToken($i, '');
-                        $i++;
-                    }
+            if ($lines <= $this->allowedLines) {
+                return;
+            }
 
-                    $phpcsFile->fixer->addNewlineBefore($i);
-                    $phpcsFile->fixer->endChangeset();
+            $fix = $phpcsFile->addFixableError(
+                'Classes must not contain multiple empty lines in a row; found %s empty lines',
+                $stackPtr,
+                'EmptyLines',
+                [$lines]
+            );
+
+            if ($fix === true) {
+                $phpcsFile->fixer->beginChangeset();
+                $i = $stackPtr;
+                while ($tokens[$i]['line'] !== $tokens[$next]['line']) {
+                    $phpcsFile->fixer->replaceToken($i, '');
+                    $i++;
                 }
+
+                $phpcsFile->fixer->addNewlineBefore($i);
+                $phpcsFile->fixer->endChangeset();
             }
         }
     }

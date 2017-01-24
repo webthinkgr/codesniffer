@@ -11,12 +11,10 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @package Codesniffer
  * @see     http://pear.php.net/package/PHP_CodeSniffer
  */
-class DeprecatedTagsSniff implements Sniff
+final class DeprecatedTagsSniff implements Sniff
 {
     /**
-     * Returns an array of tokens this test wants to listen for.
-     *
-     * @return array
+     * @inheritdoc
      */
     public function register()
     {
@@ -24,11 +22,7 @@ class DeprecatedTagsSniff implements Sniff
     }
 
     /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param File $phpcsFile The file being scanned.
-     * @param int  $stackPtr  The position of the current token in the stack passed in $tokens.
-     * @return void
+     * @inheritdoc
      */
     public function process(File $phpcsFile, $stackPtr)
     {
