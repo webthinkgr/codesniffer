@@ -89,3 +89,6 @@ tolerant with this and I allow a nesting level up to 4. Nesting level of 3 is a 
     - `PEAR.Commenting.FunctionComment.SpacingAfterParamType`
     - `PEAR.Commenting.FunctionComment.SpacingAfterParamName`
     - `PEAR.Commenting.FunctionComment.MissingParamComment`
+
+[PSR-5]: https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md
+[PSR-12]: https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md
