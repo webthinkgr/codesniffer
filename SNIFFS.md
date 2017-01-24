@@ -61,9 +61,11 @@ tolerant with this and I allow a nesting level up to 4. Nesting level of 3 is a 
 - `Squiz.Classes.SelfMemberReference` 
 - `Squiz.Operators.ValidLogicalOperators`
 - `Squiz.PHP.Eval` according to official PHP website:
+
     > The eval() language construct is very dangerous because it allows execution of arbitrary PHP code. Its use 
     > thus is discouraged. If you have carefully verified that there is no other option than to use this construct,
     > pay special attention not to pass any user provided data into it without properly validating it beforehand.
+
 - `Squiz.PHP.NonExecutableCode`
 - `Squiz.Scope.StaticThisUsage` check for `$this` usage in a static function.
 
