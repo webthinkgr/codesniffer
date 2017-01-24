@@ -14,6 +14,10 @@ copied from other packages.
    Furthermore some of these rules I needed them altered to server my needs.
 2. I don't like the CodeStyle that `squizlab/codesniffer` has. 
 
+## Sniffs included
+
+- Please read [this](SNIFFS.md) to learn more about the ruleset.
+
 ## Install
 
 You can install this package through composer
