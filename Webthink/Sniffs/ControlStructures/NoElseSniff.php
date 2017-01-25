@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Avoid using `elseif` tokens.
+ * Avoid using `else` and `elseif` tokens.
  * This rule is an indication that your code needs refactoring.
  * As an indication and not a strict rule it adds a warning and not an error.
  *
@@ -11,7 +11,6 @@
  */
 class Webthink_Sniffs_ControlStructures_NoElseSniff implements PHP_CodeSniffer_Sniff
 {
-
     /**
      * Supported list of tokenizers supported by this sniff.
      *

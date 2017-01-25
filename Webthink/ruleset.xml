@@ -41,7 +41,11 @@
 
     <!-- Disallow old PHP4 constructor names -->
     <rule ref="Generic.NamingConventions.ConstructorName" />
-    <rule ref="Generic.Strings.UnnecessaryStringConcat" />
+    <rule ref="Generic.Strings.UnnecessaryStringConcat">
+        <properties>
+            <property name="error" value="false" />
+        </properties>
+    </rule>
 
     <rule ref="Squiz.Arrays.ArrayBracketSpacing" />
     <rule ref="Squiz.Classes.ClassFileName" />
@@ -49,7 +53,7 @@
     <rule ref="Squiz.Classes.SelfMemberReference" />
     <rule ref="Squiz.Commenting.DocCommentAlignment" />
     <rule ref="Squiz.Operators.ValidLogicalOperators" />
-    <rule ref="Squiz.PHP.Eval"/>
+    <rule ref="Squiz.PHP.Eval" />
     <rule ref="Squiz.PHP.LowercasePHPFunctions" />
     <rule ref="Squiz.PHP.NonExecutableCode" />
     <rule ref="Squiz.Scope.StaticThisUsage" />
@@ -114,10 +118,4 @@
     </rule>
     <!-- Do not use # for comments -->
     <rule ref="PEAR.Commenting.InlineComment" />
-
-    <!-- If a member var has a comment validate that it is in valid format -->
-    <rule ref="Squiz.Commenting.VariableComment">
-        <exclude name="Squiz.Commenting.VariableComment.Missing" />
-        <exclude name="Squiz.Commenting.VariableComment.IncorrectVarType" />
-    </rule>
 </ruleset>

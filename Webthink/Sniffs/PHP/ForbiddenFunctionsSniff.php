@@ -11,7 +11,6 @@ if (class_exists('Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true) === false) 
  */
 class Webthink_Sniffs_PHP_ForbiddenFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
 {
-
     /**
      * A list of forbidden functions with their alternatives.
      *
@@ -21,19 +20,16 @@ class Webthink_Sniffs_PHP_ForbiddenFunctionsSniff extends Generic_Sniffs_PHP_For
      * @var array (string => string|null)
      */
     public $forbiddenFunctions = [
-        'sizeof' => 'count',  //aliases are not allowed.
-        'delete' => 'unset',  //use unset. Who the hell uses delete?
-        'print' => 'echo',  // use echo.
         'var_dump' => null,  //is not allowed.
         'die' => null,  //is not allowed.
         'exit' => null,  //is not allowed.
-        'is_null' => null,  // aliases are not allowed.
         'create_function' => null,  // is not allowed.
         'curl_init' => null,  //use Guzzle instead or another package instead.
         'ldap_sort' => null,  //is deprecated in PHP 7.1.
         'password_hash' => null,  //is deprecated in PHP 7.1.
         'mcrypt_encrypt' => null,  //is deprecated in PHP 7.1.
         'mcrypt_create_iv' => null,  //is deprecated in PHP 7.1.
+        'apache_request_headers' => null, // Exists only on Apache webservers
+        'getallheaders' => null, // Is an allias of apache_request_headers() 
     ];
-
-}//end class
+}

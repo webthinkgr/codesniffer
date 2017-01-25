@@ -6,15 +6,8 @@ if (class_exists('Generic_Sniffs_PHP_NoSilencedErrorsSniff', true) === false) {
 
 /**
  * Throws an error or warning when any code prefixed with an asperand is encountered.
- * The rule was found on github and it was copied and altered in order to ignore the all
- * `trigger_error` functions and the `fopen` functions
- *
- * <code>
- *  if (@in_array($array, $needle))
- *  {
- *      doSomething();
- *  }
- * </code>
+ * The rule was found on github and it was copied and altered in order to ignore the
+ * `trigger_error` functions and the `fopen` functions.
  *
  * @package Codesniffer
  * @author  George Mponos <gmponos@gmail.com>
@@ -23,6 +16,13 @@ if (class_exists('Generic_Sniffs_PHP_NoSilencedErrorsSniff', true) === false) {
  */
 class Webthink_Sniffs_PHP_NoSilencedErrorsSniff extends Generic_Sniffs_PHP_NoSilencedErrorsSniff
 {
+    /**
+     * @var array
+     */
+    public $allowedFunctions = [
+        'trigger_error',
+        'fopen',
+    ];
 
     /**
      * If true, an error will be thrown; otherwise a warning.
@@ -44,22 +44,11 @@ class Webthink_Sniffs_PHP_NoSilencedErrorsSniff extends Generic_Sniffs_PHP_NoSil
         $secondTokenData = $tokens[($stackPtr + 1)];
         $thirdTokenData = $tokens[($stackPtr + 2)];
 
-        // This is a silenced "trigger_error" function call.
         if (
             $secondTokenData['code'] === T_STRING
-            && $secondTokenData['content'] === 'trigger_error'
+            && in_array($secondTokenData['content'], $this->allowedFunctions)
             && $thirdTokenData['code'] === T_OPEN_PARENTHESIS
-            && isset($thirdTokenData['parenthesis_closer']) === true
-        ) {
-            return;
-        }
-
-        // allow silencing fopen functions.
-        if (
-            $secondTokenData['code'] === T_STRING
-            && $secondTokenData['content'] === 'fopen'
-            && $thirdTokenData['code'] === T_OPEN_PARENTHESIS
-            && isset($thirdTokenData['parenthesis_closer']) === true
+            && isset($thirdTokenData['parenthesis_closer'])
         ) {
             return;
         }

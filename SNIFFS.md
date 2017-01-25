@@ -9,19 +9,27 @@ change much in the near future. Also you might see that some of the rules that a
 guidelines that the PSRs are not.
 
 - `PSR-2` all the rules of [PSR-2][PSR-2] are included.
-- `PSR-5` 
+- `PSR-5`
     - I have a custom sniff which outputs a warning in cases a deprecated tag is used in comments.
       See the [#comments](SNIFFS.md#comments) section in this file.
-    - Note that PSR-5 is draft state.
+    - Note that [PSR-5][PSR-5] is draft state.
 - `PSR-12`
     - I have applied the rule about 1 space between concatenation.
     - I have created a custom rule copied from [CodingStandard](https://github.com/aik099/CodingStandard) which enforces
      the instantiation of an object to have parentheses.
-    - Note that PSR-5 is draft state.
+    - Note that [PSR-12][PSR-12] is draft state.
 
 ## Custom rules.
 The following rules are the ones customized inside this package.
 
+- `Webthink.Array.LastElementComma` the last element of an multiline array must always have a comma.
+- `Webthink.Classes.ClassCreateInstance` when instantiating a new object it must always have parentheses. This rule 
+was based on [PSR-12][PSR-12].
+- `Webthink.Commenting.DeprecatedTagsSniff` according to [PSR-5][PSR-5] there are some tags for PHPDoc that are deprecated.
+In cases when a tag like this is exists then a warning is displayed.
+- `Webthink.Metrics.MethodPerClassLimit` this is a custom rule that checks if the class has more than 10 methods
+ for a warning and 20 methods for errors. I personally believe that tests should be **excluded** from this rule. This rule
+ was inspired by Object Calisthenics.
 
 ## Whitespace and style
 - `Generic.Arrays.DisallowLongArraySyntax` 
@@ -35,7 +43,7 @@ or another and I chose this way.
 - `Squiz.WhiteSpace.SemicolonSpacing`
 - `Squiz.WhiteSpace.SuperfluousWhitespace` PSR-2 mutes this sniffs. We revert this change and we enforce this rule.
 - `Zend.NamingConventions.ValidVariableName` this rule is used only to ensure that all variables are CamelCase format.
-  So the following rules are excluded:
+  So the following rules are **excluded**:
     - `Zend.NamingConventions.ValidVariableName.ContainsNumbers`
     - `Zend.NamingConventions.ValidVariableName.StringVarContainsNumbers`
     - `Zend.NamingConventions.ValidVariableName.MemberVarContainsNumbers`
@@ -69,26 +77,22 @@ tolerant with this and I allow a nesting level up to 4. Nesting level of 3 is a 
 - `Squiz.PHP.NonExecutableCode`
 - `Squiz.Scope.StaticThisUsage` check for `$this` usage in a static function.
 
-### Custom
-- `Webthink.Metrics.MethodPerClassLimit` this is a custom rule that checks if the class has more than 10 methods
- for a warning and 20 methods for errors. I personally believe that tests should be excluded from this rule. This rule
- was inspired by Object Calisthenics.
-
 ## Comments
 - `Squiz.Commenting.DocCommentAlignment`
 - `PEAR.Commenting.InlineComment`
-- `PEAR.Commenting.ClassComment` All classes must have a PHPDoc. Tests are excluded. It is not required the classes 
-   to have tags. That's why I have removed the following rules:  
+- `PEAR.Commenting.ClassComment` All classes must have a PHPDoc. Tests are **excluded**. It is not required the classes 
+   to have tags. That's why following rules are **excluded**:
     - `PEAR.Commenting.ClassComment.MissingPackageTag`
     - `PEAR.Commenting.ClassComment.MissingAuthorTag`
     - `PEAR.Commenting.ClassComment.MissingCategoryTag`
     - `PEAR.Commenting.ClassComment.MissingLinkTag`
     - `PEAR.Commenting.ClassComment.MissingLicenseTag`
 
-- `PEAR.Commenting.FunctionComment` All classes must have a PHPDoc. Tests are excluded. I have removed the following rules:  
+- `PEAR.Commenting.FunctionComment` All classes must have a PHPDoc. Tests are **excluded**. I have removed the following rules:  
     - `PEAR.Commenting.FunctionComment.SpacingAfterParamType`
     - `PEAR.Commenting.FunctionComment.SpacingAfterParamName`
     - `PEAR.Commenting.FunctionComment.MissingParamComment`
 
+[PSR-2]: http://www.php-fig.org/psr/psr-2/
 [PSR-5]: https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md
 [PSR-12]: https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md

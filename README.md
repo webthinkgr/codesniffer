@@ -12,7 +12,8 @@ copied from other packages.
    I would have to require all these packages and create a `*.xml` file with the rules.
    This would not be handy. I don't like to be dependent in so many packages.
    Furthermore some of these rules I needed them altered to server my needs.
-2. I don't like the CodeStyle that `squizlab/codesniffer` has. 
+2. I don't like the CodeStyle that `squizlab/codesniffer` has. This codestyle is followed by many of the sniff I found
+from external packages.
 
 ## Sniffs included
 
