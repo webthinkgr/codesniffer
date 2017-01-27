@@ -21,7 +21,7 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
      *
      * @var int
      */
-    public $absoluteMaxCount = 15;
+    public $absoluteMaxCount = 20;
 
     /**
      * Supported list of tokenizers supported by this sniff.
@@ -82,7 +82,10 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
         $methods = [];
 
         while (($next = $phpcsFile->findNext(T_FUNCTION, $pointer + 1)) !== false) {
-            $methods[] = $next;
+            // Ignore magic functions and constructor.
+            if (stripos($phpcsFile->getDeclarationName($next), '__') === false) {
+                $methods[] = $next;
+            }
             $pointer = $next;
         }
 

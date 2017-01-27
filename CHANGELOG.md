@@ -28,8 +28,9 @@ All Notable changes of `webthink/codesniffer` will be documented in this file. S
     - It will be muted in ruleset.
 - Created a new custom sniff that ensures the number of methods in a Class.
     - Maximum methods before warning are 10.
-    - Maximum methods before error are 15.
+    - Maximum methods before error are 20.
     - Developers can customize this per project.
+    - Constructor method and magic methods are excluded.
 - Created a new custom sniff to add an empty line after the `<?php` tag.
 - Created a new custom sniff that ensures that all uses are in Alphabetical order.
     - It will be muted in ruleset.
