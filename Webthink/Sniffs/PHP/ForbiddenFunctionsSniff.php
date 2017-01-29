@@ -25,10 +25,7 @@ class Webthink_Sniffs_PHP_ForbiddenFunctionsSniff extends Generic_Sniffs_PHP_For
         'exit' => null,  //is not allowed.
         'create_function' => null,  // is not allowed.
         'curl_init' => null,  //use Guzzle instead or another package instead.
-        'ldap_sort' => null,  //is deprecated in PHP 7.1.
-        'password_hash' => null,  //is deprecated in PHP 7.1.
-        'mcrypt_encrypt' => null,  //is deprecated in PHP 7.1.
-        'mcrypt_create_iv' => null,  //is deprecated in PHP 7.1.
+        'apache_response_headers' => null, // Exists only on Apache webservers
         'apache_request_headers' => null, // Exists only on Apache webservers
         'getallheaders' => null, // Is an allias of apache_request_headers() 
     ];
