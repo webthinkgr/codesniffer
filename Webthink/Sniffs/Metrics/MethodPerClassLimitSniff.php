@@ -8,7 +8,7 @@
  *
  * @author George Mponos <gmponos@gmail.com>
  */
-class Xm_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffer_Sniff
+class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffer_Sniff
 {
     /**
      * Maximum amount of methods per class.

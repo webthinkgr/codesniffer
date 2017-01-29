@@ -3,7 +3,7 @@
 /**
  * The rule was inspired by Object Calisthenics.
  *
- * @author George Mponos <gmponos@xm.com>
+ * @author George Mponos <gmponos@gmail.com>
  */
 class Webthink_Sniffs_Metrics_MethodParametersLimitSniff implements PHP_CodeSniffer_Sniff
 {
