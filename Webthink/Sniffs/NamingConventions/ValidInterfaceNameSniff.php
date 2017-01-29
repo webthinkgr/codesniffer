@@ -12,7 +12,9 @@ class Webthink_Sniffs_NamingConventions_ValidInterfaceNameSniff implements PHP_C
      */
     public function register()
     {
-        return [T_TRAIT];
+        return [
+            T_INTERFACE,
+        ];
     }
 
     /**

@@ -12,7 +12,9 @@ class Webthink_Sniffs_NamingConventions_ValidTraitNameSniff implements PHP_CodeS
      */
     public function register()
     {
-        return [T_TRAIT];
+        return [
+            T_TRAIT,
+        ];
     }
 
     /**
