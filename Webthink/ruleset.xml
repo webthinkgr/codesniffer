@@ -46,13 +46,16 @@
             <property name="error" value="false" />
         </properties>
     </rule>
-
+    <rule ref="Generic.PHP.DeprecatedFunctions" />
     <rule ref="Squiz.Arrays.ArrayBracketSpacing" />
     <rule ref="Squiz.Classes.ClassFileName" />
     <rule ref="Squiz.Classes.LowercaseClassKeywords" />
     <rule ref="Squiz.Classes.SelfMemberReference" />
     <rule ref="Squiz.Commenting.DocCommentAlignment" />
     <rule ref="Squiz.Operators.ValidLogicalOperators" />
+    <rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops">
+        <exclude-pattern>*/tests/*</exclude-pattern>
+    </rule>
     <rule ref="Squiz.PHP.Eval" />
     <rule ref="Squiz.PHP.LowercasePHPFunctions" />
     <rule ref="Squiz.PHP.NonExecutableCode" />
@@ -94,6 +97,10 @@
     </rule>
 
     <rule ref="Webthink.Metrics.MethodPerClassLimit">
+        <!-- Relax some rules for tests -->
+        <exclude-pattern>*/tests/*</exclude-pattern>
+    </rule>
+    <rule ref="Webthink.Metrics.MethodParametersLimit">
         <!-- Relax some rules for tests -->
         <exclude-pattern>*/tests/*</exclude-pattern>
     </rule>
