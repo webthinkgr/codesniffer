@@ -24,9 +24,17 @@ class Webthink_Sniffs_PHP_ForbiddenFunctionsSniff extends Generic_Sniffs_PHP_For
         'die' => null,  //is not allowed.
         'exit' => null,  //is not allowed.
         'create_function' => null,  // is not allowed.
+        'print_r' => null, // is not allowed.
         'curl_init' => null,  //use Guzzle instead or another package instead.
         'apache_response_headers' => null, // Exists only on Apache webservers
         'apache_request_headers' => null, // Exists only on Apache webservers
         'getallheaders' => null, // Is an allias of apache_request_headers() 
     ];
+
+    /**
+     * If true, an error will be thrown; otherwise a warning.
+     *
+     * @var bool
+     */
+    public $error = true;
 }

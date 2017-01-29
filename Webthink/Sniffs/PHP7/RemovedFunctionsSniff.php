@@ -1,5 +1,9 @@
 <?php
 
+if (class_exists('Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true) === false) {
+    throw new PHP_CodeSniffer_Exception('Class Generic_Sniffs_PHP_ForbiddenFunctionsSniff not found');
+}
+
 /**
  * This sniff checks about functions that have been removed in PHP 7 and throws an error.
  * Also suggests an alternative if one exists.
@@ -22,6 +26,7 @@ class Webthink_Sniffs_PHP7_RemovedFunctionsSniff extends Generic_Sniffs_PHP_Forb
     public $forbiddenFunctions = [
         'call_user_method' => 'call_user_func',
         'call_user_method_array' => 'call_user_func_array',
+        'datefmt_set_timezone_id' => 'datefmt_set_timezone',
         'ereg' => 'preg_match',
         'ereg_replace' => 'preg_replace',
         'eregi' => 'preg_match',
@@ -32,7 +37,6 @@ class Webthink_Sniffs_PHP7_RemovedFunctionsSniff extends Generic_Sniffs_PHP_Forb
         'set_socket_blocking' => 'stream_set_blocking',
         'split' => 'preg_split',
         'spliti' => 'preg_split',
-        'datefmt_set_timezone_id' => 'datefmt_set_timezone',
 
         //No alternatives
         'imagepsbbox' => null,
@@ -42,14 +46,14 @@ class Webthink_Sniffs_PHP7_RemovedFunctionsSniff extends Generic_Sniffs_PHP_Forb
         'imagepsloadfont' => null,
         'imagepsslantfont' => null,
         'imagepstext' => null,
-        'mysql_list_dbs' => null,
         'magic_quotes_runtime' => null,
-        'set_magic_quotes_runtime' => null,
-        'sql_regcase' => null,
-        'mcrypt_ecb' => null,
         'mcrypt_cbc' => null,
         'mcrypt_cfb' => null,
+        'mcrypt_ecb' => null,
         'mcrypt_ofb' => null,
+        'mysql_list_dbs' => null,
+        'set_magic_quotes_runtime' => null,
+        'sql_regcase' => null,
     ];
 
     /**

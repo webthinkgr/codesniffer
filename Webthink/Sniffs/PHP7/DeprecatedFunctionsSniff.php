@@ -1,16 +1,28 @@
 <?php
 
+if (class_exists('Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true) === false) {
+    throw new PHP_CodeSniffer_Exception('Class Generic_Sniffs_PHP_ForbiddenFunctionsSniff not found');
+}
+
 /**
  * This sniff contains the deprecated functions from 5.x to 7 and also the ones from 7.0 to 7.1
  * It outputs a warning if any of these function has been used.
  *
  * Copied most of this from `wimg/php-compatibility` package.
  *
- * @see    https://github.com/wimg/PHPCompatibility/blob/master/Sniffs/PHP/DeprecatedFunctionsSniff.php
+ * @see    https://github.com/wimg/PHPCompatibility
  * @author George Mponos <gmponos@gmail.com>
  */
 class Webthink_Sniffs_PHP7_DeprecatedFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
 {
+    /**
+     * A list of forbidden functions with their alternatives.
+     *
+     * The value is NULL if no alternative exists. IE, the
+     * function should just not be used.
+     *
+     * @var array(string => string|null)
+     */
     protected $forbiddenFunctions = [
         'ldap_sort' => null,
         'mcrypt_create_iv' => 'OpenSSL',
@@ -48,6 +60,8 @@ class Webthink_Sniffs_PHP7_DeprecatedFunctionsSniff extends Generic_Sniffs_PHP_F
     ];
 
     /**
+     * If true, an error will be thrown; otherwise a warning.
+     *
      * @var bool
      */
     public $error = false;

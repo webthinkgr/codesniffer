@@ -4,7 +4,8 @@
  * Check for amount of methods per class, part of "Keep your classes small"
  * The rule was inspired by Object Calisthenics.
  *
- * It was altered in order to ignore private/protected methods and also all magic methods of PHP.
+ * It was altered in order to ignore private/protected methods
+ * and also all magic methods of PHP.
  *
  * @author George Mponos <gmponos@gmail.com>
  */
@@ -121,7 +122,7 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
      * Gets the scope modifier of a method.
      *
      * @param PHP_CodeSniffer_File $phpcsFile
-     * @param                      $stackPtr
+     * @param int                  $stackPtr
      * @return string|null
      */
     private function getModifier(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
@@ -141,12 +142,12 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
     }
 
     /**
-     * @param string $modifier
+     * @param string $modifier The functions scope modifier
      * @return bool
      */
     private function isPublic($modifier)
     {
-        return in_array($modifier, ['public', null]);
+        return in_array($modifier, ['public', null], true);
     }
 
     /**

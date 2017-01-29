@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Ensures trait names are correct depending on the folder of the file.
+ * Ensures trait names are correct.
  *
  * @author George Mponos <gmponos@gmail.com>
  */
@@ -25,7 +25,11 @@ class Webthink_Sniffs_NamingConventions_ValidTraitNameSniff implements PHP_CodeS
         $tokens = $phpcsFile->getTokens();
         $traitName = $tokens[$stackPtr + 2]['content'];
         if (substr($traitName, -5) !== 'Trait') {
-            $phpcsFile->addError('Traits must have a "Trait" suffix.', $stackPtr, 'InvalidTraitName');
+            $phpcsFile->addError(
+                'Traits must have a "Trait" suffix.',
+                $stackPtr,
+                'InvalidTraitName'
+            );
         }
     }
 }

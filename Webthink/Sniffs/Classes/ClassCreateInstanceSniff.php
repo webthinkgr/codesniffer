@@ -12,11 +12,8 @@
  */
 class Webthink_Sniffs_Classes_ClassCreateInstanceSniff implements PHP_CodeSniffer_Sniff
 {
-
     /**
-     * Returns an array of tokens this test wants to listen for.
-     *
-     * @return integer[]
+     * @inheritdoc
      */
     public function register()
     {
@@ -24,11 +21,7 @@ class Webthink_Sniffs_Classes_ClassCreateInstanceSniff implements PHP_CodeSniffe
     }
 
     /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token in the stack passed in $tokens.
-     * @return void
+     * @inheritdoc
      */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
@@ -54,11 +47,12 @@ class Webthink_Sniffs_Classes_ClassCreateInstanceSniff implements PHP_CodeSniffe
             $fix = $phpcsFile->addFixableError($error, $stackPtr);
             if ($fix === true) {
                 $phpcsFile->fixer->beginChangeset();
-                $classNameEnd = $phpcsFile->findNext([
-                    T_WHITESPACE,
-                    T_NS_SEPARATOR,
-                    T_STRING,
-                ],
+                $classNameEnd = $phpcsFile->findNext(
+                    [
+                        T_WHITESPACE,
+                        T_NS_SEPARATOR,
+                        T_STRING,
+                    ],
                     ($stackPtr + 1),
                     null,
                     true,
@@ -68,7 +62,7 @@ class Webthink_Sniffs_Classes_ClassCreateInstanceSniff implements PHP_CodeSniffe
 
                 $phpcsFile->fixer->addContentBefore($classNameEnd, '()');
                 $phpcsFile->fixer->endChangeset();
-            }//end if
+            }
         } else {
             if ($tokens[($nextParenthesis - 1)]['code'] === T_WHITESPACE) {
                 $error = 'Between the class name and the opening parenthesis spaces are not welcome';

@@ -5,6 +5,7 @@
  * This sniff does not allow to have variable Variables if they do not have curly brackets.
  *
  * Copied most of this from `wimg/php-compatibility` package.
+ * This sniff was altered in a way that I believe it's more readable.
  *
  * @see    http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.variable-handling
  * @see    https://github.com/wimg/PHPCompatibility
@@ -17,7 +18,9 @@ class Webthink_Sniffs_PHP7_VariableVariablesSniff implements PHP_CodeSniffer_Sni
      */
     public function register()
     {
-        return [T_VARIABLE];
+        return [
+            T_VARIABLE,
+        ];
     }
 
     /**
@@ -46,16 +49,13 @@ class Webthink_Sniffs_PHP7_VariableVariablesSniff implements PHP_CodeSniffer_Sni
         }
 
         // The previous token has to be a $, -> or ::.
-        if (isset($tokens[($stackPtr - 1)]) === false || in_array(
-                $tokens[($stackPtr - 1)]['code'],
-                [
-                    T_DOLLAR,
-                    T_OBJECT_OPERATOR,
-                    T_DOUBLE_COLON,
-                ],
-                true
-            ) === false
-        ) {
+        $lookupTokens = [
+            T_DOLLAR,
+            T_OBJECT_OPERATOR,
+            T_DOUBLE_COLON,
+        ];
+
+        if (!isset($tokens[($stackPtr - 1)]) || !in_array($tokens[($stackPtr - 1)]['code'], $lookupTokens, true)) {
             return;
         }
 
@@ -96,17 +96,21 @@ class Webthink_Sniffs_PHP7_VariableVariablesSniff implements PHP_CodeSniffer_Sni
                 null,
                 true
             );
+
             if ($classToken !== false) {
                 if ($tokens[$classToken]['code'] === T_STATIC || $tokens[$classToken]['code'] === T_SELF) {
                     return;
-                } elseif ($tokens[$classToken]['code'] === T_STRING && $tokens[$classToken]['content'] === 'self') {
+                }
+
+                if ($tokens[$classToken]['code'] === T_STRING && $tokens[$classToken]['content'] === 'self') {
                     return;
                 }
             }
         }
 
         $phpcsFile->addError(
-            'Indirect access to variables, properties and methods will be evaluated strictly in left-to-right order since PHP 7.0. Use curly braces to remove ambiguity.',
+            'Indirect access to variables, properties and methods will be evaluated strictly in left-to-right' .
+            ' order since PHP 7.0. Use curly braces to remove ambiguity.',
             $stackPtr,
             'Found'
         );

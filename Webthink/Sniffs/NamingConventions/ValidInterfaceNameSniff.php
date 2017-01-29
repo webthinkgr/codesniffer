@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Ensures trait names are correct depending on the folder of the file.
+ * Ensures interface names are correct.
  *
  * @author George Mponos <gmponos@gmail.com>
  */
@@ -25,7 +25,11 @@ class Webthink_Sniffs_NamingConventions_ValidInterfaceNameSniff implements PHP_C
         $tokens = $phpcsFile->getTokens();
         $traitName = $tokens[$stackPtr + 2]['content'];
         if (substr($traitName, -9) !== 'Interface') {
-            $phpcsFile->addError('Interfaces must have an "Interface" suffix.', $stackPtr, 'InvalidInterfaceName');
+            $phpcsFile->addError(
+                'Interfaces must have an "Interface" suffix.',
+                $stackPtr,
+                'InvalidInterfaceName'
+            );
         }
     }
 }

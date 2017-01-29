@@ -9,7 +9,6 @@
  */
 class Webthink_Sniffs_Array_LastElementCommaSniff implements PHP_CodeSniffer_Sniff
 {
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *

@@ -20,18 +20,32 @@ class Webthink_Sniffs_PHP_DiscouragedFunctionsSniff extends Generic_Sniffs_PHP_F
      * @var array (string => string|null)
      */
     public $forbiddenFunctions = [
-        'sizeof' => 'count',  //aliases are not allowed.
-        'delete' => 'unset',  //use unset. Who the hell uses delete?
-        'print' => 'echo',  // use echo.
-        'join' => 'implode',  // aliases are not allowed.
-        'is_null' => null,  // aliases are not allowed.
         'chop' => 'rtrim',
+        'delete' => 'unset', //use unset. Who the hell uses delete?
         'fputs' => 'fwrite',
+        'i18n_convert' => 'mb_convert_encoding',
+        'i18n_discover_encoding' => 'mb_detect_encoding',
+        'i18n_http_input' => 'mb_http_input',
+        'i18n_http_output' => 'mb_http_output',
+        'i18n_internal_encoding' => 'mb_internal_encoding',
+        'i18n_ja_jp_hantozen' => 'mb_convert_kana',
+        'i18n_mime_header_decode' => 'mb_decode_mimeheader',
+        'i18n_mime_header_encode' => 'mb_encode_mimeheader',
         'is_double' => 'is_float',
         'is_integer' => 'is_int',
         'is_long' => 'is_int',
+        'is_null' => null,  // aliases are not allowed.
         'is_real' => 'is_float',
+        'join' => 'implode', // aliases are not allowed.
         'key_exists' => 'array_key_exists',
+        'print' => 'echo', // use echo.
+        'sizeof' => 'count', //aliases are not allowed.
+
+        // Serialized data has known vulnerability problems with Object Injection.
+        // JSON is generally a better approach for serializing data.
+        // See https://www.owasp.org/index.php/PHP_Object_Injection
+        'serialize' => null,
+        'unserialize' => null,
     ];
 
     /**
