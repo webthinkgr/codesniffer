@@ -3,7 +3,7 @@
 /**
  * Checks that a call was not made to an object directly from an array.
  *
- * @author George Bonos <gbonos@xm.com>
+ * @author George Mponos <gmponos@gmail.com>
  */
 class Webthink_Sniffs_PHP_ObjectCallsSniff implements PHP_CodeSniffer_Sniff
 {
