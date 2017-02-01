@@ -59,8 +59,7 @@ class Webthink_Sniffs_Array_LastElementCommaSniff implements PHP_CodeSniffer_Sni
         }
 
         // Inline array.
-        $isInlineArray = $tokens[$tokens[$stackPtr][$parenthesis_opener]]['line'] === $tokens[$tokens[$stackPtr][$parenthesis_closer]]['line'];
-        if ($isInlineArray === true) {
+        if ($tokens[$tokens[$stackPtr][$parenthesis_opener]]['line'] === $tokens[$tokens[$stackPtr][$parenthesis_closer]]['line']) {
             // Check if this array contains
             return;
         }
@@ -72,12 +71,10 @@ class Webthink_Sniffs_Array_LastElementCommaSniff implements PHP_CodeSniffer_Sni
             && $tokens[($lastItem + 1)]['code'] !== T_CLOSE_SHORT_ARRAY
             && isset(PHP_CodeSniffer_Tokens::$heredocTokens[$tokens[$lastItem]['code']]) === false
         ) {
-            $data = [$tokens[$lastItem]['content']];
             $fix = $phpcsFile->addFixableError(
-                'A comma should follow the last multiline array item. Found: %s',
+                'A comma should follow the last multiline array item.',
                 $lastItem,
-                'CommaLastItem',
-                $data
+                'CommaLastItem'
             );
 
             if ($fix === true) {

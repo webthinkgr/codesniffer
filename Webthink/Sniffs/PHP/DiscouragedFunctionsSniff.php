@@ -6,10 +6,20 @@ if (class_exists('Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true) === false) 
 
 /**
  * This rule is created to override the default Forbidden functions
+ * in order to throw a warning and discourage the use of some functions.
  *
- * @author George Mponos <gmponos@gmail.com>
+ * Initially we discourage the use of all alias functions of PHP.
+ *
+ * From the official PHP website:
+ *
+ * > It is usually a bad idea to use these kind of aliases,
+ * > as they may be bound to obsolescence or renaming,
+ * > which will lead to unportable script
+ *
+ * @see    http://php.net/manual/en/aliases.php
+ * @author George Bonos <gbonos@xm.com>
  */
-class Webthink_Sniffs_PHP_DiscouragedFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
+class Xm_Sniffs_PHP_DiscouragedFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
 {
     /**
      * A list of forbidden functions with their alternatives.
@@ -20,8 +30,9 @@ class Webthink_Sniffs_PHP_DiscouragedFunctionsSniff extends Generic_Sniffs_PHP_F
      * @var array (string => string|null)
      */
     public $forbiddenFunctions = [
+        // aliases are discouraged.
         'chop' => 'rtrim',
-        'delete' => 'unset', //use unset. Who the hell uses delete?
+        'delete' => 'unset',
         'fputs' => 'fwrite',
         'i18n_convert' => 'mb_convert_encoding',
         'i18n_discover_encoding' => 'mb_detect_encoding',
@@ -34,12 +45,22 @@ class Webthink_Sniffs_PHP_DiscouragedFunctionsSniff extends Generic_Sniffs_PHP_F
         'is_double' => 'is_float',
         'is_integer' => 'is_int',
         'is_long' => 'is_int',
-        'is_null' => null,  // aliases are not allowed.
+        'is_null' => null,
         'is_real' => 'is_float',
-        'join' => 'implode', // aliases are not allowed.
+        'join' => 'implode',
         'key_exists' => 'array_key_exists',
-        'print' => 'echo', // use echo.
-        'sizeof' => 'count', //aliases are not allowed.
+        'print' => 'echo',
+        'sizeof' => 'count',
+
+        // use guzzle instead
+        'parse_url' => null,
+        'parse_str' => null,
+        'http_build_query' => null,
+
+        // should only be used when dealing with legacy applications rawurlencode() should now be used instead.
+        // See http://php.net/manual/en/function.rawurlencode.php and http://www.faqs.org/rfcs/rfc3986.html'
+        'urlencode' => 'rawurlencode',
+        'urldecode' => 'rawurldecode',
 
         // Serialized data has known vulnerability problems with Object Injection.
         // JSON is generally a better approach for serializing data.
@@ -54,4 +75,47 @@ class Webthink_Sniffs_PHP_DiscouragedFunctionsSniff extends Generic_Sniffs_PHP_F
      * @var bool
      */
     public $error = false;
+
+    /**
+     * @inheritdoc
+     */
+    protected function addError($phpcsFile, $stackPtr, $function, $pattern = null)
+    {
+        $data = [$function];
+        $error = 'The use of function %s() is ';
+        $errorFunction = $this->camelCapsFunction($function);
+
+        if ($this->error === true) {
+            $error .= 'forbidden';
+        } else {
+            $error .= 'discouraged';
+        }
+
+        $type = 'Found' . $errorFunction;
+
+        if ($this->forbiddenFunctions[$function] !== null && $this->forbiddenFunctions[$function] !== 'null') {
+            $data[] = $this->forbiddenFunctions[$function];
+            $error .= '; use %s() instead';
+        }
+
+        if ($this->error === true) {
+            $phpcsFile->addError($error, $stackPtr, $type, $data);
+        } else {
+            $phpcsFile->addWarning($error, $stackPtr, $type, $data);
+        }
+    }
+
+    /**
+     * Returns the function name in camelCaps
+     *
+     * @param string $function The function name
+     * @return string
+     */
+    private function camelCapsFunction($function)
+    {
+        $function = str_replace('_', ' ', $function);
+        $function = ucwords($function);
+        $function = str_replace(' ', '', $function);
+        return $function;
+    }
 }

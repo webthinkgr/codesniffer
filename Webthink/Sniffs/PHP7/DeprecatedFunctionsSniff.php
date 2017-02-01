@@ -15,15 +15,7 @@ if (class_exists('Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true) === false) 
  */
 class Webthink_Sniffs_PHP7_DeprecatedFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
 {
-    /**
-     * A list of forbidden functions with their alternatives.
-     *
-     * The value is NULL if no alternative exists. IE, the
-     * function should just not be used.
-     *
-     * @var array(string => string|null)
-     */
-    protected $forbiddenFunctions = [
+    public $forbiddenFunctions = [
         'ldap_sort' => null,
         'mcrypt_create_iv' => 'OpenSSL',
         'mcrypt_decrypt' => 'OpenSSL',
@@ -60,8 +52,6 @@ class Webthink_Sniffs_PHP7_DeprecatedFunctionsSniff extends Generic_Sniffs_PHP_F
     ];
 
     /**
-     * If true, an error will be thrown; otherwise a warning.
-     *
      * @var bool
      */
     public $error = false;
@@ -75,9 +65,9 @@ class Webthink_Sniffs_PHP7_DeprecatedFunctionsSniff extends Generic_Sniffs_PHP_F
         $error = 'Function %s() has been deprecated in PHP 7';
         $type = 'Deprecated';
 
-        if ($this->forbiddenFunctions[$pattern] !== null && $this->forbiddenFunctions[$pattern] !== 'null') {
+        if ($this->forbiddenFunctions[$function] !== null && $this->forbiddenFunctions[$function] !== 'null') {
             $type .= 'WithAlternative';
-            $data[] = $this->forbiddenFunctions[$pattern];
+            $data[] = $this->forbiddenFunctions[$function];
             $error .= '; use %s() instead';
         }
 

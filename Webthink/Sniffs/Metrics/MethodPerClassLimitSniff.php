@@ -4,8 +4,7 @@
  * Check for amount of methods per class, part of "Keep your classes small"
  * The rule was inspired by Object Calisthenics.
  *
- * It was altered in order to ignore private/protected methods
- * and also all magic methods of PHP.
+ * It was altered in order to ignore private/protected methods and also all magic methods of PHP.
  *
  * @author George Mponos <gmponos@gmail.com>
  */
@@ -24,7 +23,7 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
      *
      * @var int
      */
-    public $absoluteMaxCount = 20;
+    public $absoluteMaxCount = 22;
 
     /**
      * Supported list of tokenizers supported by this sniff.
@@ -35,6 +34,11 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
         'PHP',
     ];
 
+    /**
+     * Contains the magic methods of PHP
+     *
+     * @var array
+     */
     protected $magicMethods = [
         '__construct',
         '__destruct',
@@ -54,9 +58,7 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
     ];
 
     /**
-     * Registers the tokens that this sniff wants to listen for.
-     *
-     * @return integer[]
+     * @inheritdoc
      */
     public function register()
     {
@@ -67,6 +69,9 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
@@ -86,7 +91,7 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
             return;
         }
 
-        if ($methodCount > $this->maxCount) {
+        if ($this->absoluteMaxCount != 0 && $methodCount > $this->maxCount) {
             $message = 'Your %s has %d methods, consider refactoring (should be less or equals than %d methods)';
             $warning = sprintf($message, $tokenType, $methodCount, $this->maxCount);
             $phpcsFile->addWarning($warning, $stackPtr, sprintf('%sTooMany', ucfirst($tokenType)));
@@ -95,7 +100,7 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
     }
 
     /**
-     * Retrieve the list of class methods pointers.
+     * Retrieve the list of class methods' pointers.
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
      * @param int                   $stackPtr  The position of the current token in the stack passed in $tokens.
@@ -119,45 +124,33 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
     }
 
     /**
-     * Gets the scope modifier of a method.
-     *
-     * @param PHP_CodeSniffer_File $phpcsFile
-     * @param int                  $stackPtr
-     * @return string|null
-     */
-    private function getModifier(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
-    {
-        $tokens = $phpcsFile->getTokens();
-        for ($i = ($stackPtr - 1); $i > 0; $i--) {
-            if ($tokens[$i]['line'] < $tokens[$stackPtr]['line']) {
-                return null;
-            }
-
-            if (isset(PHP_CodeSniffer_Tokens::$scopeModifiers[$tokens[$i]['code']])) {
-                return $tokens[$i]['content'];
-            }
-        }
-
-        return null;
-    }
-
-    /**
      * @param string $modifier The functions scope modifier
      * @return bool
      */
     private function isPublic($modifier)
     {
-        return in_array($modifier, ['public', null], true);
+        return $modifier === 'public';
     }
 
     /**
-     * Checks if a function name is a magic function.
-     *
      * @param string $name
      * @return bool
      */
     private function isMagicFunction($name)
     {
         return in_array($name, $this->magicMethods, true);
+    }
+
+    /**
+     * Gets the scope modifier of a method.
+     *
+     * @param PHP_CodeSniffer_File $phpcsFile
+     * @param int                  $stackPtr
+     * @return string|null
+     */
+    public function getModifier(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    {
+        $properties = $phpcsFile->getMethodProperties($stackPtr);
+        return $properties['scope'];
     }
 }
