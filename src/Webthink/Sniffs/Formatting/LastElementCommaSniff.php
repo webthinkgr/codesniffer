@@ -1,6 +1,6 @@
 <?php
 
-namespace WebthinkSniffer;
+namespace WebthinkSniffer\Sniffs\Formatting;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
@@ -8,7 +8,8 @@ use PHP_CodeSniffer\Util\Tokens;
 
 /**
  * Ensure that last element of multiline array has a comma
- * The rule was copied from `drupal/coder` and it was altered in order to include only the last comma rule
+ * The rule was copied from `drupal/coder` and it was altered
+ * in order to include only the last comma rule
  *
  * @package WebthinkSniffer
  * @author  George Mponos <gmponos@gmail.com>
@@ -59,8 +60,7 @@ final class LastElementCommaSniff implements Sniff
         }
 
         // Inline array.
-        $isInlineArray = $tokens[$tokens[$stackPtr][$parenthesis_opener]]['line'] === $tokens[$tokens[$stackPtr][$parenthesis_closer]]['line'];
-        if ($isInlineArray === true) {
+        if ($tokens[$tokens[$stackPtr][$parenthesis_opener]]['line'] === $tokens[$tokens[$stackPtr][$parenthesis_closer]]['line']) {
             // Check if this array contains
             return;
         }
@@ -72,12 +72,10 @@ final class LastElementCommaSniff implements Sniff
             && $tokens[($lastItem + 1)]['code'] !== T_CLOSE_SHORT_ARRAY
             && isset(Tokens::$heredocTokens[$tokens[$lastItem]['code']]) === false
         ) {
-            $data = [$tokens[$lastItem]['content']];
             $fix = $phpcsFile->addFixableError(
-                'A comma should follow the last multiline array item. Found: %s',
+                'A comma should follow the last multiline array item.',
                 $lastItem,
-                'CommaLastItem',
-                $data
+                'CommaLastItem'
             );
 
             if ($fix === true) {

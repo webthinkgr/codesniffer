@@ -1,21 +1,14 @@
 <?php
 
-namespace WebthinkSniffer;
+namespace WebthinkSniffer\Sniffs\PHP;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\NoSilencedErrorsSniff as GenericNoSilencedErrorsSniff;
 
 /**
  * Throws an error or warning when any code prefixed with an asperand is encountered.
- * The rule was found on github and it was copied and altered in order to ignore the all
- * `trigger_error` functions and the `fopen` functions
- *
- * <code>
- *  if (@in_array($array, $needle))
- *  {
- *      doSomething();
- *  }
- * </code>
+ * The rule was found on github and it was copied and altered in order to ignore the
+ * `trigger_error` functions and the `fopen` functions.
  *
  * @package Codesniffer
  * @author  George Mponos <gmponos@gmail.com>

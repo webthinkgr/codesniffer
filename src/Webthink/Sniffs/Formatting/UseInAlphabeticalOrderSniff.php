@@ -1,6 +1,6 @@
 <?php
 
-namespace WebthinkSniffer;
+namespace WebthinkSniffer\Sniffs\Formatting;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
@@ -49,7 +49,7 @@ final class UseInAlphabeticalOrderSniff implements Sniff
         $next = $stackPtr;
 
         while ($next !== false) {
-            $this->_checkUseToken($phpcsFile, $next);
+            $this->checkUseToken($phpcsFile, $next);
             $next = $phpcsFile->findNext(T_USE, $next + 1);
         }
 
@@ -81,11 +81,10 @@ final class UseInAlphabeticalOrderSniff implements Sniff
      * @param integer $stackPtr  The index of the first use token.
      * @return void
      */
-    protected function _checkUseToken($phpcsFile, $stackPtr)
+    protected function checkUseToken($phpcsFile, $stackPtr)
     {
         // If the use token is for a closure we want to ignore it.
-        $isClosure = $this->_isClosure($phpcsFile, $stackPtr);
-        if ($isClosure) {
+        if ($this->isClosure($phpcsFile, $stackPtr)) {
             return;
         }
 
@@ -123,7 +122,7 @@ final class UseInAlphabeticalOrderSniff implements Sniff
      * @param int  $stackPtr
      * @return bool
      */
-    protected function _isClosure($phpcsFile, $stackPtr)
+    protected function isClosure($phpcsFile, $stackPtr)
     {
         return $phpcsFile->findPrevious(
             [T_CLOSURE],

@@ -1,6 +1,6 @@
 <?php
 
-namespace WebthinkSniffer;
+namespace WebthinkSniffer\Sniffs\Metrics;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
@@ -8,6 +8,8 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 /**
  * Check for amount of methods per class, part of "Keep your classes small"
  * The rule was inspired by Object Calisthenics.
+ *
+ * It was altered in order to ignore private/protected methods and also all magic methods of PHP.
  *
  * @author George Mponos <gmponos@gmail.com>
  */
@@ -18,14 +20,15 @@ final class MethodPerClassLimitSniff implements Sniff
      *
      * @var int
      */
-    public $maxCount = 10;
+    public $maxCount = 12;
 
     /**
-     * Absolute maximum amount of methods per class
+     * Absolute maximum amount of methods per class.
+     * You can set this value to 0 in order to have only a warning message.
      *
      * @var int
      */
-    public $absoluteMaxCount = 20;
+    public $absoluteMaxCount = 22;
 
     /**
      * Supported list of tokenizers supported by this sniff.
@@ -34,6 +37,29 @@ final class MethodPerClassLimitSniff implements Sniff
      */
     public $supportedTokenizers = [
         'PHP',
+    ];
+
+    /**
+     * Contains the magic methods of PHP
+     *
+     * @var array
+     */
+    protected $magicMethods = [
+        '__construct',
+        '__destruct',
+        '__call',
+        '__callStatic',
+        '__get',
+        '__set',
+        '__isset',
+        '__unset',
+        '__sleep',
+        '__wakeup',
+        '__toString',
+        '__invoke',
+        '__set_state',
+        '__clone',
+        '__debugInfo',
     ];
 
     /**
@@ -59,17 +85,21 @@ final class MethodPerClassLimitSniff implements Sniff
         $methods = $this->getClassMethods($phpcsFile, $stackPtr);
         $methodCount = count($methods);
 
-        if ($methodCount > $this->absoluteMaxCount) {
-            $message = 'Your %s has %d methods, must be less or equals than %d methods';
-            $error = sprintf($message, $tokenType, $methodCount, $this->absoluteMaxCount);
-            $phpcsFile->addError($error, $stackPtr, sprintf('%sTooManyMethods', ucfirst($tokenType)));
+        if ($methodCount <= $this->maxCount) {
             return;
         }
 
-        if ($methodCount > $this->maxCount) {
+        if ($this->absoluteMaxCount != 0 && $methodCount > $this->absoluteMaxCount) {
+            $message = 'Your %s has %d methods, must be less or equals than %d methods';
+            $error = sprintf($message, $tokenType, $methodCount, $this->absoluteMaxCount);
+            $phpcsFile->addError($error, $stackPtr, sprintf('%sMaxExceeded', ucfirst($tokenType)));
+            return;
+        }
+
+        if ($this->absoluteMaxCount != 0 && $methodCount > $this->maxCount) {
             $message = 'Your %s has %d methods, consider refactoring (should be less or equals than %d methods)';
             $warning = sprintf($message, $tokenType, $methodCount, $this->maxCount);
-            $phpcsFile->addWarning($warning, $stackPtr, sprintf('%sTooManyMethods', ucfirst($tokenType)));
+            $phpcsFile->addWarning($warning, $stackPtr, sprintf('%sTooMany', ucfirst($tokenType)));
             return;
         }
     }
@@ -87,10 +117,45 @@ final class MethodPerClassLimitSniff implements Sniff
         $methods = [];
 
         while (($next = $phpcsFile->findNext(T_FUNCTION, $pointer + 1)) !== false) {
-            $methods[] = $next;
+            $modifier = $this->getModifier($phpcsFile, $next);
+            if ($this->isPublic($modifier) && !$this->isMagicFunction($phpcsFile->getDeclarationName($next))) {
+                $methods[] = $next;
+            }
+
             $pointer = $next;
         }
 
         return $methods;
+    }
+
+    /**
+     * @param string $modifier The functions scope modifier
+     * @return bool
+     */
+    private function isPublic($modifier)
+    {
+        return $modifier === 'public';
+    }
+
+    /**
+     * @param string $name
+     * @return bool
+     */
+    private function isMagicFunction($name)
+    {
+        return in_array($name, $this->magicMethods, true);
+    }
+
+    /**
+     * Gets the scope modifier of a method.
+     *
+     * @param File $phpcsFile
+     * @param int  $stackPtr
+     * @return string
+     */
+    public function getModifier(File $phpcsFile, $stackPtr)
+    {
+        $properties = $phpcsFile->getMethodProperties($stackPtr);
+        return $properties['scope'];
     }
 }

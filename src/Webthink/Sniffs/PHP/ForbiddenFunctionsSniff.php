@@ -1,6 +1,6 @@
 <?php
 
-namespace WebthinkSniffer;
+namespace WebthinkSniffer\Sniffs\PHP;
 
 use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff as GenericForbiddenFunctionsSniff;
 
@@ -15,14 +15,72 @@ final class ForbiddenFunctionsSniff extends GenericForbiddenFunctionsSniff
      * @inheritDoc
      */
     public $forbiddenFunctions = [
-        'var_dump' => null,  //is not allowed.
-        'die' => null,  //is not allowed.
-        'exit' => null,  //is not allowed.
-        'create_function' => null,  // is not allowed.
-        'curl_init' => null,  //use Guzzle instead or another package instead.
-        'ldap_sort' => null,  //is deprecated in PHP 7.1.
-        'password_hash' => null,  //is deprecated in PHP 7.1.
-        'mcrypt_encrypt' => null,  //is deprecated in PHP 7.1.
-        'mcrypt_create_iv' => null,  //is deprecated in PHP 7.1.
+        'create_function' => null, // is not allowed.
+        'die' => null, //is not allowed.
+        'exit' => null, //is not allowed.
+        'var_dump' => null, //is not allowed.
+        'print_r' => null,
+
+        //use Guzzle or another HttpClient library instead.
+        'curl_init' => null,
+        'curl_exec' => null,
+        'curl_multi_exec' => null,
+
+        'ini_alter' => null,
+        'ini_restore' => null,
+
+        'apache_response_headers' => null, // Exists only on Apache webservers
+        'apache_request_headers' => null, // Exists only on Apache webservers
+        'getallheaders' => null, // Is an alias of apache_request_headers()
     ];
+
+    /**
+     * If true, an error will be thrown; otherwise a warning.
+     *
+     * @var bool
+     */
+    public $error = true;
+
+    /**
+     * @inheritdoc
+     */
+    protected function addError($phpcsFile, $stackPtr, $function, $pattern = null)
+    {
+        $data = [$function];
+        $error = 'The use of function %s() is ';
+        $errorFunction = $this->camelCapsFunction($function);
+
+        if ($this->error === true) {
+            $error .= 'forbidden';
+        } else {
+            $error .= 'discouraged';
+        }
+
+        $type = 'Found' . $errorFunction;
+
+        if ($this->forbiddenFunctions[$function] !== null && $this->forbiddenFunctions[$function] !== 'null') {
+            $data[] = $this->forbiddenFunctions[$function];
+            $error .= '; use %s() instead';
+        }
+
+        if ($this->error === true) {
+            $phpcsFile->addError($error, $stackPtr, $type, $data);
+        } else {
+            $phpcsFile->addWarning($error, $stackPtr, $type, $data);
+        }
+    }
+
+    /**
+     * Returns the function name in camelCaps
+     *
+     * @param string $function The function name
+     * @return string
+     */
+    private function camelCapsFunction($function)
+    {
+        $function = str_replace('_', ' ', $function);
+        $function = ucwords($function);
+        $function = str_replace(' ', '', $function);
+        return $function;
+    }
 }
