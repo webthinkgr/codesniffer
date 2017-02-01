@@ -13,7 +13,7 @@ use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff;
  * @see    https://github.com/wimg/PHPCompatibility
  * @author George Mponos <gmponos@gmail.com>
  */
-class DeprecatedFunctionsSniff extends ForbiddenFunctionsSniff
+final class DeprecatedFunctionsSniff extends ForbiddenFunctionsSniff
 {
     public $forbiddenFunctions = [
         'ldap_sort' => null,

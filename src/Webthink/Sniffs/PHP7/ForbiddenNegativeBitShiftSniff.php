@@ -13,7 +13,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @see    https://github.com/wimg/PHPCompatibility
  * @author George Mponos <gmponos@gmail.com>
  */
-class ForbiddenNegativeBitShiftSniff implements Sniff
+final class ForbiddenNegativeBitShiftSniff implements Sniff
 {
     /**
      * @inheritdoc

@@ -14,7 +14,7 @@ use PHP_CodeSniffer\Util\Tokens;
  *
  * Copied from cakephp-codesniffer
  *
- * @see    https://github.com/cakephp/cakephp-codesniffer/blob/master/CakePHP/Sniffs/PHP/TypeCastingSniff.php
+ * @see    https://github.com/cakephp/cakephp-codesniffer
  * @author George Mponos <gmponos@gmail.com>
  */
 final class TypeCastingSniff implements Sniff

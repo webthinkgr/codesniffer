@@ -17,7 +17,7 @@ use PHP_CodeSniffer\Util\Tokens;
  * @see    https://github.com/wimg/PHPCompatibility
  * @author George Mponos <gmponos@gmail.com>
  */
-class VariableVariablesSniff implements Sniff
+final class VariableVariablesSniff implements Sniff
 {
     /**
      * @inheritdoc

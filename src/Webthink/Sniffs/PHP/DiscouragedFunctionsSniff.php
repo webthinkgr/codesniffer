@@ -3,6 +3,7 @@
 namespace WebthinkSniffer\Sniffs\PHP;
 
 use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff as GenericForbiddenFunctionsSniff;
+use WebthinkSniffer\Helpers\Inflector;
 
 /**
  * This rule is created to override the default Forbidden functions
@@ -76,7 +77,7 @@ final class DiscouragedFunctionsSniff extends GenericForbiddenFunctionsSniff
     {
         $data = [$function];
         $error = 'The use of function %s() is ';
-        $errorFunction = $this->camelCapsFunction($function);
+        $errorFunction = Inflector::camelCaps($function);
 
         if ($this->error === true) {
             $error .= 'forbidden';
@@ -98,17 +99,5 @@ final class DiscouragedFunctionsSniff extends GenericForbiddenFunctionsSniff
         }
     }
 
-    /**
-     * Returns the function name in camelCaps
-     *
-     * @param string $function The function name
-     * @return string
-     */
-    private function camelCapsFunction($function)
-    {
-        $function = str_replace('_', ' ', $function);
-        $function = ucwords($function);
-        $function = str_replace(' ', '', $function);
-        return $function;
-    }
+
 }

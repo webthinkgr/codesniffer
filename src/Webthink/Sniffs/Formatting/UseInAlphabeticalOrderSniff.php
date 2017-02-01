@@ -9,7 +9,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * Ensures all the `use` are in alphabetical order.
  * The rule was copied from `cakephp/cakephp-codesniffer`
  *
- * @see https://github.com/cakephp/cakephp-codesniffer/blob/master/CakePHP/Sniffs/Formatting/UseInAlphabeticalOrderSniff.php
+ * @see https://github.com/cakephp/cakephp-codesniffer
  */
 final class UseInAlphabeticalOrderSniff implements Sniff
 {

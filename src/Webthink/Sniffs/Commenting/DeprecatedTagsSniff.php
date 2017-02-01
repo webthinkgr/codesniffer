@@ -18,7 +18,9 @@ final class DeprecatedTagsSniff implements Sniff
      */
     public function register()
     {
-        return [T_DOC_COMMENT_TAG];
+        return [
+            T_DOC_COMMENT_TAG,
+        ];
     }
 
     /**

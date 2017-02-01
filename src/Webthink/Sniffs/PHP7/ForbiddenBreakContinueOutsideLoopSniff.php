@@ -2,6 +2,7 @@
 
 namespace WebthinkSniffer\Sniffs\PHP7;
 
+use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
@@ -12,7 +13,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @see    https://github.com/wimg/PHPCompatibility
  * @author George Mponos <gmponos@gmail.com>
  */
-class ForbiddenBreakContinueOutsideLoopSniff implements Sniff
+final class ForbiddenBreakContinueOutsideLoopSniff implements Sniff
 {
     /**
      * Token codes of control structure in which usage of break/continue is valid.
@@ -51,20 +52,15 @@ class ForbiddenBreakContinueOutsideLoopSniff implements Sniff
     }
 
     /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token in the stack passed in $tokens.
-     *
-     * @return void
+     * @inheritdoc
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
         $token = $tokens[$stackPtr];
 
         // Check if the break/continue is within a valid loop structure.
-        if (empty($token['conditions']) === false) {
+        if (!empty($token['conditions'])) {
             foreach ($token['conditions'] as $tokenCode) {
                 if (isset($this->validLoopStructures[$tokenCode])) {
                     return;

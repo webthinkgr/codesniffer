@@ -13,7 +13,7 @@ use PHP_CodeSniffer\Util\Tokens;
  *
  * @see https://github.com/klausi/coder
  */
-class LeadingBackSlashSniff implements Sniff
+final class LeadingBackSlashSniff implements Sniff
 {
     /**
      * @inheritdoc

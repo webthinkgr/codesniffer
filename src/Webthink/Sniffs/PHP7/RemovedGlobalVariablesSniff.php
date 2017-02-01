@@ -14,7 +14,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @see    https://github.com/wimg/PHPCompatibility
  * @author George Mponos <gmponos@gmail.com>
  */
-class RemovedGlobalVariablesSniff implements Sniff
+final class RemovedGlobalVariablesSniff implements Sniff
 {
     /**
      * A list of removed global variables with their alternative, if any.

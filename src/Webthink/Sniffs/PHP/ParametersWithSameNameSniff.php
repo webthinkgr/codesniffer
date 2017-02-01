@@ -15,7 +15,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @see    https://github.com/wimg/PHPCompatibility
  * @author George Mponos <gmponos@gmail.com>
  */
-class ParametersWithSameNameSniff implements Sniff
+final class ParametersWithSameNameSniff implements Sniff
 {
     /**
      * @inheritdoc
@@ -38,17 +38,19 @@ class ParametersWithSameNameSniff implements Sniff
         if (isset($token['scope_opener']) === false) {
             return;
         }
+
         // Get all parameters from method signature.
         $parameters = $phpcsFile->getMethodParameters($stackPtr);
-        if (empty($parameters) || is_array($parameters) === false) {
+        if (empty($parameters) || !is_array($parameters)) {
             return;
         }
+
         $paramNames = [];
         foreach ($parameters as $param) {
             $paramNames[] = strtolower($param['name']);
         }
 
-        if (count($paramNames) != count(array_unique($paramNames))) {
+        if (count($paramNames) !== count(array_unique($paramNames))) {
             $phpcsFile->addError(
                 'Functions must not have multiple parameters with the same name',
                 $stackPtr,

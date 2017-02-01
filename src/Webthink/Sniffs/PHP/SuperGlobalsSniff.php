@@ -14,7 +14,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * @author George Mponos <gmponos@gmail.com>
  */
-class SuperGlobalsSniff implements Sniff
+final class SuperGlobalsSniff implements Sniff
 {
     /**
      * The list with the SuperGlobals

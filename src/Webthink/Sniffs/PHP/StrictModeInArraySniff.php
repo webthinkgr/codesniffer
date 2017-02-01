@@ -7,7 +7,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
 
 /**
- * Flag calling in_array(), array_search() and array_keys() without true as the third parameter.
+ * Flag calling in_array() and array_search() without true as the third parameter.
  * Copied and altered from WordPress Coding Standard.
  *
  * @see    https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards

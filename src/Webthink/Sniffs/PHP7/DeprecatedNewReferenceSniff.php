@@ -14,7 +14,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @see    http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.new-by-ref
  * @author George Mponos <gmponos@gmail.com>
  */
-class DeprecatedNewReferenceSniff implements Sniff
+final class DeprecatedNewReferenceSniff implements Sniff
 {
     /**
      * @inheritdoc

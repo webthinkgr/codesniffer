@@ -11,8 +11,7 @@ use PHP_CodeSniffer\Util\Tokens;
  * The rule was copied from `drupal/coder` and it was altered
  * in order to include only the last comma rule
  *
- * @package WebthinkSniffer
- * @author  George Mponos <gmponos@gmail.com>
+ * @author George Mponos <gmponos@gmail.com>
  */
 final class LastElementCommaSniff implements Sniff
 {

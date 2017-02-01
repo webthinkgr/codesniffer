@@ -10,7 +10,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * @author George Mponos <gmponos@gmail.com>
  */
-class ValidTraitNameSniff implements Sniff
+final class ValidTraitNameSniff implements Sniff
 {
     /**
      * @inheritdoc
