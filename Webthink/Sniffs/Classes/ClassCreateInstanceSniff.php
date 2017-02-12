@@ -43,7 +43,10 @@ class Webthink_Sniffs_Classes_ClassCreateInstanceSniff implements PHP_CodeSniffe
         );
 
         if ($nextParenthesis === false || $tokens[$nextParenthesis]['line'] !== $tokens[$stackPtr]['line']) {
-            $fix = $phpcsFile->addFixableError('Calling class constructors must always include parentheses', $stackPtr);
+            $fix = $phpcsFile->addFixableError(
+                'Calling class constructors must always include parentheses',
+                $stackPtr
+            );
             if ($fix === true) {
                 $phpcsFile->fixer->beginChangeset();
                 $classNameEnd = $phpcsFile->findNext(

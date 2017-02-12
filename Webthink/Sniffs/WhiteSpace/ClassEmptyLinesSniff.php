@@ -53,8 +53,13 @@ class Webthink_Sniffs_WhiteSpace_ClassEmptyLinesSniff implements PHP_CodeSniffer
             $next = $phpcsFile->findNext(T_WHITESPACE, $stackPtr, null, true);
             $lines = ($tokens[$next]['line'] - $tokens[$stackPtr]['line']);
             if ($lines > 1) {
-                $error = 'Classes must not contain multiple empty lines in a row; found %s empty lines';
-                $fix = $phpcsFile->addFixableError($error, $stackPtr, 'EmptyLines', [$lines]);
+                $fix = $phpcsFile->addFixableError(
+                    'Classes must not contain multiple empty lines in a row; found %s empty lines',
+                    $stackPtr,
+                    'EmptyLines',
+                    [$lines]
+                );
+
                 if ($fix === true) {
                     $phpcsFile->fixer->beginChangeset();
                     $i = $stackPtr;

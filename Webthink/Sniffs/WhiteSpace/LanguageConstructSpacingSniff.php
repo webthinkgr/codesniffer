@@ -14,14 +14,11 @@ class Webthink_Sniffs_WhiteSpace_LanguageConstructSpacingSniff extends Squiz_Sni
      */
     public function register()
     {
-        return array_merge(
-            parent::register(),
-            [
-                T_YIELD,
-                T_THROW,
-                T_USE,
-                T_NAMESPACE,
-            ]
-        );
+        return array_merge(parent::register(), [
+            T_YIELD,
+            T_THROW,
+            T_USE,
+            T_NAMESPACE,
+        ]);
     }
 }
