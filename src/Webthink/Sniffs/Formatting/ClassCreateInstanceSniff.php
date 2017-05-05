@@ -49,15 +49,10 @@ final class ClassCreateInstanceSniff implements Sniff
         if ($nextParenthesis === false || $tokens[$nextParenthesis]['line'] !== $tokens[$stackPtr]['line']) {
             $fix = $phpcsFile->addFixableError(
                 'Calling class constructors must always include parentheses',
-<<<<<<< HEAD:src/Webthink/Sniffs/Formatting/ClassCreateInstanceSniff.php
                 $stackPtr,
                 'missingParentheses'
             );
 
-=======
-                $stackPtr
-            );
->>>>>>> master:Webthink/Sniffs/Classes/ClassCreateInstanceSniff.php
             if ($fix === true) {
                 $phpcsFile->fixer->beginChangeset();
                 $classNameEnd = $phpcsFile->findNext(

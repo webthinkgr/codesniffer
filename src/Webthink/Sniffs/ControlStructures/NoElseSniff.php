@@ -41,6 +41,6 @@ final class NoElseSniff implements Sniff
      */
     public function process(File $phpcsFile, $stackPtr)
     {
-        $phpcsFile->addWarning('"Else" or "ElseIf" should be avoided', $stackPtr);
+        $phpcsFile->addWarning('"Else" or "ElseIf" should be avoided', $stackPtr, 'NoElseIf');
     }
 }
