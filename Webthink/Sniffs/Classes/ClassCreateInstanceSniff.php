@@ -1,14 +1,27 @@
 <?php
+/**
+ * Webthink_Sniffs_Classes_ClassCreateInstanceSniff.
+ *
+ * PHP version 5
+ *
+ * @category PHP
+ * @package  PHP_CodeSniffer
+ * @author   Peter Philipp <peter.philipp@cando-image.com>
+ * @author   Alexander Obuhovich <aik.bold@gmail.com>
+ * @license  https://github.com/aik099/CodingStandard/blob/master/LICENSE BSD 3-Clause
+ * @link     https://github.com/aik099/CodingStandard
+ */
 
 /**
  * Class create instance Test.
- * Checks the declaration of the class is correct.
- * This sniff was copied from CodingStandard
  *
- * @package Codesniffer
- * @author  Peter Philipp <peter.philipp@cando-image.com>
- * @author  Alexander Obuhovich <aik.bold@gmail.com>
- * @see     https://github.com/aik099/CodingStandard
+ * Checks the declaration of the class is correct.
+ *
+ * @author Peter Philipp <peter.philipp@cando-image.com>
+ * @author Alexander Obuhovich <aik.bold@gmail.com>
+ * @author George Mponos <gmponos@gmail.com>
+ * @license https://github.com/aik099/CodingStandard/blob/master/LICENSE BSD 3-Clause
+ * @see https://github.com/aik099/CodingStandard
  */
 class Webthink_Sniffs_Classes_ClassCreateInstanceSniff implements PHP_CodeSniffer_Sniff
 {

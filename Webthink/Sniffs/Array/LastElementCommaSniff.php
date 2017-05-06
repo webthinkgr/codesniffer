@@ -5,8 +5,8 @@
  * The rule was copied from `drupal/coder` and it was altered
  * in order to include only the last comma rule
  *
- * @package Codesniffer
- * @author  George Mponos <gmponos@gmail.com>
+ * @author Klaus Purer @klausi
+ * @author George Mponos <gmponos@gmail.com>
  * @see https://github.com/klausi/coder
  */
 class Webthink_Sniffs_Array_LastElementCommaSniff implements PHP_CodeSniffer_Sniff
