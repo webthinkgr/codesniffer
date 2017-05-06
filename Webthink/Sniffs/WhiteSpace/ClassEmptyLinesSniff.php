@@ -6,13 +6,11 @@
  * This rule was mostly copied from Squiz_Sniffs_WhiteSpace_SuperfluousWhitespaceSniff and altered
  * in order not to allow multiple empty lines inside classes.
  *
- * @package Codesniffer
  * @author George Mponos <gmponos@gmail.com>
  * @see Squiz_Sniffs_WhiteSpace_SuperfluousWhitespaceSniff
  */
 class Webthink_Sniffs_WhiteSpace_ClassEmptyLinesSniff implements PHP_CodeSniffer_Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -36,7 +34,7 @@ class Webthink_Sniffs_WhiteSpace_ClassEmptyLinesSniff implements PHP_CodeSniffer
      * Processes this test, when one of its tokens is encountered.
      *
      * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token in the stack passed in $tokens.
+     * @param int $stackPtr The position of the current token in the stack passed in $tokens.
      * @return void
      */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)

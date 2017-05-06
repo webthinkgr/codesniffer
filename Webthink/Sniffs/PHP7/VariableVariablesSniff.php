@@ -11,6 +11,7 @@
  * @see https://github.com/wimg/PHPCompatibility
  * @author Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
  * @author George Mponos <gmponos@gmail.com>
+ * @copyright 2012 Cu.be Solutions bvba
  */
 class Webthink_Sniffs_PHP7_VariableVariablesSniff implements PHP_CodeSniffer_Sniff
 {

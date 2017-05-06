@@ -3,12 +3,14 @@
 /**
  * Disallows the use of removed global variables.
  *
- * Copied most of this from `wimg/php-compatibility` package.
+ * Copied most of this from `wimg/php-compatibility` package
+ * and changed it's codestyle.
  *
- * @see    http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.http-raw-post-data
- * @see    https://github.com/wimg/PHPCompatibility
+ * @see http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.http-raw-post-data
+ * @see https://github.com/wimg/PHPCompatibility
  * @author Wim Godden <wim.godden@cu.be>
  * @author George Mponos <gmponos@gmail.com>
+ * @copyright 2012 Cu.be Solutions bvba
  */
 class Webthink_Sniffs_PHP7_RemovedGlobalVariablesSniff implements PHP_CodeSniffer_Sniff
 {
