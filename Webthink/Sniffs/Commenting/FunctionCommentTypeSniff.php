@@ -1,4 +1,19 @@
 <?php
+/**
+ * PHP Version 5
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://pear.php.net/package/PHP_CodeSniffer_CakePHP
+ * @since         CakePHP CodeSniffer 0.1.14
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ */
 
 /**
  * Asserts that function comments use the short form for types
@@ -12,7 +27,6 @@
  */
 class Webthink_Sniffs_Commenting_FunctionCommentTypeSniff implements PHP_CodeSniffer_Sniff
 {
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -27,7 +41,7 @@ class Webthink_Sniffs_Commenting_FunctionCommentTypeSniff implements PHP_CodeSni
      * Processes this test, when one of its tokens is encountered.
      *
      * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token
+     * @param int $stackPtr The position of the current token
      *                                        in the stack passed in $tokens.
      * @return void
      */
@@ -67,9 +81,9 @@ class Webthink_Sniffs_Commenting_FunctionCommentTypeSniff implements PHP_CodeSni
 
     /**
      * @param PHP_CodeSniffer_File $phpcsFile
-     * @param int                  $stackPtr
-     * @param string               $from
-     * @param string               $to
+     * @param int $stackPtr
+     * @param string $from
+     * @param string $to
      * @return void
      */
     protected function _check(PHP_CodeSniffer_File $phpcsFile, $stackPtr, $from, $to)

@@ -6,6 +6,7 @@
  * Copied most of this from `wimg/php-compatibility` package.
  *
  * @see    https://github.com/wimg/PHPCompatibility
+ * @author Wim Godden <wim.godden@cu.be>
  * @author George Mponos <gmponos@gmail.com>
  */
 class Webthink_Sniffs_PHP7_ForbiddenBreakContinueOutsideLoopSniff implements PHP_CodeSniffer_Sniff

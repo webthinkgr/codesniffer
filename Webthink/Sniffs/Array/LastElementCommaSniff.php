@@ -2,10 +2,12 @@
 
 /**
  * Ensure that last element of multiline array has a comma
- * The rule was copied from `drupal/coder` and it was altered in order to include only the last comma rule
+ * The rule was copied from `drupal/coder` and it was altered
+ * in order to include only the last comma rule
  *
  * @package Codesniffer
  * @author  George Mponos <gmponos@gmail.com>
+ * @see https://github.com/klausi/coder
  */
 class Webthink_Sniffs_Array_LastElementCommaSniff implements PHP_CodeSniffer_Sniff
 {
@@ -26,7 +28,7 @@ class Webthink_Sniffs_Array_LastElementCommaSniff implements PHP_CodeSniffer_Sni
      * Processes this test, when one of its tokens is encountered.
      *
      * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token in the stack passed in $tokens.
+     * @param int $stackPtr The position of the current token in the stack passed in $tokens.
      * @return void
      */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)

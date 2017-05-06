@@ -7,6 +7,7 @@
  *
  * @see    https://github.com/wimg/PHPCompatibility
  * @see    http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.new-by-ref
+ * @author Wim Godden <wim.godden@cu.be>
  * @author George Mponos <gmponos@gmail.com>
  */
 class Webthink_Sniffs_PHP7_DeprecatedNewReferenceSniff implements PHP_CodeSniffer_Sniff

@@ -9,6 +9,7 @@
  *
  * @see    http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.variable-handling
  * @see    https://github.com/wimg/PHPCompatibility
+ * @author Wim Godden <wim.godden@cu.be>
  * @author George Mponos <gmponos@gmail.com>
  */
 class Webthink_Sniffs_PHP7_VariableVariablesSniff implements PHP_CodeSniffer_Sniff

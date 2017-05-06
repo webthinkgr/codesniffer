@@ -1,4 +1,19 @@
 <?php
+/**
+ * PHP Version 5
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://pear.php.net/package/PHP_CodeSniffer_CakePHP
+ * @since         CakePHP CodeSniffer 0.1.14
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ */
 
 /**
  * Ensures all the `use` are in alphabetical order.
@@ -36,7 +51,7 @@ class Webthink_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_Code
      * Processes this test, when one of its tokens is encountered.
      *
      * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param integer              $stackPtr  The position of the current token in the stack passed in $tokens.
+     * @param integer $stackPtr The position of the current token in the stack passed in $tokens.
      * @return void
      */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
@@ -79,10 +94,10 @@ class Webthink_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_Code
      * Check all the use tokens in a file.
      *
      * @param PHP_CodeSniffer_File $phpcsFile The file to check.
-     * @param integer              $stackPtr  The index of the first use token.
+     * @param integer $stackPtr The index of the first use token.
      * @return void
      */
-    protected function checkUseToken($phpcsFile, $stackPtr)
+    protected function checkUseToken(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         // If the use token is for a closure we want to ignore it.
         if ($this->isClosure($phpcsFile, $stackPtr)) {
@@ -120,7 +135,7 @@ class Webthink_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_Code
      * Check if the current stackPtr is a use token that is for a closure.
      *
      * @param PHP_CodeSniffer_File $phpcsFile
-     * @param int                  $stackPtr
+     * @param int $stackPtr
      * @return bool
      */
     protected function isClosure($phpcsFile, $stackPtr)

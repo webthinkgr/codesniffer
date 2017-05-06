@@ -12,6 +12,7 @@ if (class_exists('Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true) === false) 
  *
  * @see    https://github.com/wimg/PHPCompatibility
  * @author George Mponos <gmponos@gmail.com>
+ * @author Wim Godden <wim.godden@cu.be>
  */
 class Webthink_Sniffs_PHP7_DeprecatedFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
 {
