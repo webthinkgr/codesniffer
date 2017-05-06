@@ -8,9 +8,9 @@ if (class_exists('Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true) === false) 
  * This sniff checks about functions that have been removed in PHP 7 and throws an error.
  * Also suggests an alternative if one exists.
  *
- * Copied most of this from `wimg/php-compatibility` package.
+ * Inspired most from `wimg/php-compatibility` package.
  *
- * @see    https://github.com/wimg/PHPCompatibility
+ * @see https://github.com/wimg/PHPCompatibility
  * @author Wim Godden <wim.godden@cu.be>
  * @author George Mponos <gmponos@gmail.com>
  */

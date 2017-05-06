@@ -5,6 +5,8 @@
  *
  * Copied from `drupal/coder`
  *
+ * @author Klaus Purer <@klausi>
+ * @author George Mponos <gmponos@gmail.com>
  * @see https://github.com/klausi/coder
  */
 class Webthink_Sniffs_Classes_LeadingBackSlashSniff implements PHP_CodeSniffer_Sniff

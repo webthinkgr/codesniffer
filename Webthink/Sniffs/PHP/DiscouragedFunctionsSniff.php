@@ -16,7 +16,7 @@ if (class_exists('Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true) === false) 
  * > as they may be bound to obsolescence or renaming,
  * > which will lead to unportable script
  *
- * @see    http://php.net/manual/en/aliases.php
+ * @see http://php.net/manual/en/aliases.php
  * @author George Mponos <gmponos@gmail.com>
  */
 class Webthink_Sniffs_PHP_DiscouragedFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff

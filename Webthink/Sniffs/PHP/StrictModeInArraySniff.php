@@ -2,10 +2,12 @@
 
 /**
  * Flag calling in_array(), array_search() and array_keys() without true as the third parameter.
+ *
  * Copied and altered from WordPress Coding Standard.
  *
- * @see    https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
+ * @see https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
  * @author George Mponos <gmponos@gmail.com>
+ * @license https://opensource.org/licenses/MIT MIT
  */
 class Webthink_Sniffs_PHP_StrictModeInArraySniff implements PHP_CodeSniffer_Sniff
 {

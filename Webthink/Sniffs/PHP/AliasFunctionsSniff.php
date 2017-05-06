@@ -10,8 +10,10 @@
  * > which will lead to unportable script
  *
  * @author George Mponos <gmponos@gmail.com>
- * @see    http://php.net/manual/en/aliases.php
- * @see    https://github.com/php-fig-rectified/psr2r-sniffer
+ * @author Mark Scherer
+ * @license MIT
+ * @see http://php.net/manual/en/aliases.php
+ * @see https://github.com/php-fig-rectified/psr2r-sniffer
  */
 class Webthink_Sniffs_PHP_AliasFunctionsSniff implements PHP_CodeSniffer_Sniff
 {

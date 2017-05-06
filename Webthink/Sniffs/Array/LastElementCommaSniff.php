@@ -5,7 +5,7 @@
  * The rule was copied from `drupal/coder` and it was altered
  * in order to include only the last comma rule
  *
- * @author Klaus Purer @klausi
+ * @author Klaus Purer <@klausi>
  * @author George Mponos <gmponos@gmail.com>
  * @see https://github.com/klausi/coder
  */

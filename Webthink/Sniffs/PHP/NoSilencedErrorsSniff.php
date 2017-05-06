@@ -12,7 +12,7 @@ if (class_exists('Generic_Sniffs_PHP_NoSilencedErrorsSniff', true) === false) {
  * @package Codesniffer
  * @author  George Mponos <gmponos@gmail.com>
  * @author  Alexander Obuhovich <aik.bold@gmail.com>
- * @see     https://github.com/aik099/CodingStandard
+ * @see https://github.com/aik099/CodingStandard
  */
 class Webthink_Sniffs_PHP_NoSilencedErrorsSniff extends Generic_Sniffs_PHP_NoSilencedErrorsSniff
 {

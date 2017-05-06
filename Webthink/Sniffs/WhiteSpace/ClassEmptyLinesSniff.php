@@ -7,8 +7,8 @@
  * in order not to allow multiple empty lines inside classes.
  *
  * @package Codesniffer
- * @author  George Mponos <gmponos@gmail.com>
- * @see     Squiz_Sniffs_WhiteSpace_SuperfluousWhitespaceSniff
+ * @author George Mponos <gmponos@gmail.com>
+ * @see Squiz_Sniffs_WhiteSpace_SuperfluousWhitespaceSniff
  */
 class Webthink_Sniffs_WhiteSpace_ClassEmptyLinesSniff implements PHP_CodeSniffer_Sniff
 {

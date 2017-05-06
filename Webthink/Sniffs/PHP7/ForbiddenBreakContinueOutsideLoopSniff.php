@@ -5,8 +5,8 @@
  *
  * Copied most of this from `wimg/php-compatibility` package.
  *
- * @see    https://github.com/wimg/PHPCompatibility
- * @author Wim Godden <wim.godden@cu.be>
+ * @see https://github.com/wimg/PHPCompatibility
+ * @author Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
  * @author George Mponos <gmponos@gmail.com>
  */
 class Webthink_Sniffs_PHP7_ForbiddenBreakContinueOutsideLoopSniff implements PHP_CodeSniffer_Sniff
@@ -51,7 +51,7 @@ class Webthink_Sniffs_PHP7_ForbiddenBreakContinueOutsideLoopSniff implements PHP
      * Processes this test, when one of its tokens is encountered.
      *
      * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token in the stack passed in $tokens.
+     * @param int $stackPtr The position of the current token in the stack passed in $tokens.
      *
      * @return void
      */
