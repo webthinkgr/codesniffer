@@ -1,7 +1,5 @@
 <?php
 /**
- * Webthink_Sniffs_Classes_ClassCreateInstanceSniff.
- *
  * PHP version 5
  *
  * @category PHP
