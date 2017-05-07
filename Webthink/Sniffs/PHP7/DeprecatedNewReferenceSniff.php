@@ -3,7 +3,11 @@
 /**
  * Discourages the use of assigning the return value of new by reference
  *
- * @author George Mponos <gmponos@gmail.com>
+ * Inspired most from `wimg/php-compatibility` package.
+ *
+ * @see https://github.com/wimg/PHPCompatibility
+ * @author Wim Godden <wim.godden@cu.be>
+ * @copyright 2012 Cu.be Solutions bvba
  */
 class Webthink_Sniffs_PHP7_DeprecatedNewReferenceSniff implements PHP_CodeSniffer_Sniff
 {

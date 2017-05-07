@@ -4,7 +4,6 @@
  * The rule was inspired by Object Calisthenics.
  *
  * @author Tomáš Votruba <info@tomasvotruba.cz>
- * @author George Mponos <gmponos@gmail.com>
  * @see https://github.com/object-calisthenics/phpcs-calisthenics-rules
  */
 class Webthink_Sniffs_Metrics_MethodParametersLimitSniff implements PHP_CodeSniffer_Sniff

@@ -7,9 +7,8 @@
  *
  * Copied from `wimg/PHPCompatibility`
  *
- * @see    http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.func-parameters
- * @see    https://github.com/wimg/PHPCompatibility
- * @author George Mponos <gmponos@gmail.com>
+ * @see http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.func-parameters
+ * @see https://github.com/wimg/PHPCompatibility
  */
 class Webthink_Sniffs_PHP_ParametersWithSameNameSniff implements PHP_CodeSniffer_Sniff
 {

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Checks that the variable have the correct comments
+ *
+ * @author George Mponos <gmponos@gmail.com>
+ */
 class Webthink_Sniffs_Commenting_VariableCommentSniff extends PHP_CodeSniffer_Standards_AbstractVariableSniff
 {
     /**

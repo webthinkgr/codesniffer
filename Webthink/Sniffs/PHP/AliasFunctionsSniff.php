@@ -10,7 +10,6 @@
  * > which will lead to unportable script
  *
  * @author Mark Scherer
- * @author George Mponos <gmponos@gmail.com>
  * @see http://php.net/manual/en/aliases.php
  * @see https://github.com/php-fig-rectified/psr2r-sniffer
  */

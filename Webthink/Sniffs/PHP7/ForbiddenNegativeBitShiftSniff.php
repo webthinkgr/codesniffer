@@ -7,7 +7,7 @@
  *
  * @see https://github.com/wimg/PHPCompatibility
  * @author Wim Godden <wim.godden@cu.be>
- * @author George Mponos <gmponos@gmail.com>
+ * @copyright 2012 Cu.be Solutions bvba
  */
 class Webthink_Sniffs_PHP7_ForbiddenNegativeBitShiftSniff implements PHP_CodeSniffer_Sniff
 {
