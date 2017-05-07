@@ -27,6 +27,15 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 For now there are no test. I hope I will write some soon.
 
+## Credits
+
+- https://github.com/squizlabs/PHP_CodeSniffer/
+- https://github.com/cakephp/cakephp-codesniffer/
+- https://github.com/object-calisthenics/phpcs-calisthenics-rules
+- https://github.com/aik099/CodingStandard/
+- https://github.com/php-fig-rectified/psr2r-sniffer
+- https://github.com/klausi/coder
+
 ## Todo
 
 - Write tests

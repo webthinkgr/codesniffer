@@ -72,7 +72,7 @@ class Webthink_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_Code
      * Check all the use tokens in a file.
      *
      * @param PHP_CodeSniffer_File $phpcsFile The file to check.
-     * @param integer $stackPtr The index of the first use token.
+     * @param int $stackPtr The index of the first use token.
      * @return void
      */
     protected function checkUseToken(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
