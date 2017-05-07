@@ -64,7 +64,7 @@ class Webthink_Sniffs_Array_LastElementCommaSniff implements PHP_CodeSniffer_Sni
             $fix = $phpcsFile->addFixableError(
                 'A comma should follow the last element of a multi-line array.',
                 $lastItem,
-                'CommaAfterLast'
+                'MissingCommaAfterLast'
             );
 
             if ($fix === true) {

@@ -1,5 +1,7 @@
 # WebthinkSniffer
 
+This project is still in WIP.
+
 A collection of Codesniffer rules.
 
 ## Description
