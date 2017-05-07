@@ -9,11 +9,7 @@ use PHP_CodeSniffer\Util\Tokens;
 /**
  * Ensure that last element of multi-line array has a comma
  *
- * The rule was copied from `drupal/coder` and it was altered
- * in order to include only the last comma rule
- *
- * @author Klaus Purer <klaus.purer@gmail.com>
- * @see https://github.com/klausi/coder
+ * @see Squiz_Sniffs_Arrays_ArrayDeclarationSniff
  */
 final class LastElementCommaSniff implements Sniff
 {
@@ -62,7 +58,6 @@ final class LastElementCommaSniff implements Sniff
 
         // Inline array.
         if ($tokens[$tokens[$stackPtr][$parenthesis_opener]]['line'] === $tokens[$tokens[$stackPtr][$parenthesis_closer]]['line']) {
-            // Check if this array contains
             return;
         }
 
@@ -73,9 +68,9 @@ final class LastElementCommaSniff implements Sniff
             && isset(Tokens::$heredocTokens[$tokens[$lastItem]['code']]) === false
         ) {
             $fix = $phpcsFile->addFixableError(
-                'A comma should follow the last multi-line array item.',
+                'A comma should follow the last element of a multi-line array.',
                 $lastItem,
-                'CommaLastItem'
+                'CommaAfterLast'
             );
 
             if ($fix === true) {

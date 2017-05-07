@@ -7,12 +7,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Bitwise shifts by negative number will throw an ArithmeticError in PHP 7.0.
- *
- * Copied most of this from `wimg/php-compatibility` package.
- *
- * @see https://github.com/wimg/PHPCompatibility
- * @author Wim Godden <wim.godden@cu.be>
- * @copyright 2012 Cu.be Solutions bvba
  */
 final class ForbiddenNegativeBitShiftSniff implements Sniff
 {
@@ -31,20 +25,16 @@ final class ForbiddenNegativeBitShiftSniff implements Sniff
      */
     public function process(File $phpcsFile, $stackPtr)
     {
-        $nextNumber = $phpcsFile->findNext(T_LNUMBER, $stackPtr + 1, null, false, null, true);
-        if ($nextNumber === false || ($stackPtr + 1) === $nextNumber) {
+        $next = $phpcsFile->findNext(T_LNUMBER, $stackPtr + 1, null, false, null, true);
+        if ($next === false || ($stackPtr + 1) === $next) {
             return;
         }
 
-        $hasMinusSign = $phpcsFile->findNext(T_MINUS, $stackPtr + 1, $nextNumber, false, null, true);
-        if ($hasMinusSign === false) {
+        $minusSign = $phpcsFile->findNext(T_MINUS, $stackPtr + 1, $next, false, null, true);
+        if ($minusSign === false) {
             return;
         }
 
-        $phpcsFile->addError(
-            'Bitwise shifts by negative number will throw an ArithmeticError in PHP 7.0',
-            $hasMinusSign,
-            'Found'
-        );
+        $phpcsFile->addError('Bitwise shifts by negative number are forbidden in PHP 7.0', $minusSign, 'Found');
     }
 }

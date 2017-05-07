@@ -8,7 +8,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 /**
  * Checks the usage of deprecated PHPDoc tags according to PSR-5.
  *
- * @see http://pear.php.net/package/PHP_CodeSniffer
+ * @author George Mponos <gmponos@gmail.com>
  */
 final class DeprecatedTagsSniff implements Sniff
 {

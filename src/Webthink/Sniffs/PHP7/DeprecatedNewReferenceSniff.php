@@ -6,13 +6,7 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
- * Discourages the use of assigning the return value of new by reference
- *
- * Inspired most from `wimg/php-compatibility` package.
- *
- * @see https://github.com/wimg/PHPCompatibility
- * @author Wim Godden <wim.godden@cu.be>
- * @copyright 2012 Cu.be Solutions bvba
+ * Disallows the use of assigning the return value of new by reference
  */
 final class DeprecatedNewReferenceSniff implements Sniff
 {
@@ -36,7 +30,7 @@ final class DeprecatedNewReferenceSniff implements Sniff
             $phpcsFile->addError(
                 'Assigning the return value of new by reference is forbidden in PHP 7.x',
                 $stackPtr,
-                'Forbidden'
+                'ReturnByRef'
             );
         }
     }

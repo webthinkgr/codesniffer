@@ -48,22 +48,16 @@ final class ClassCreateInstanceSniff implements Sniff
         );
 
         if ($nextParenthesis === false || $tokens[$nextParenthesis]['line'] !== $tokens[$stackPtr]['line']) {
-            $fix = $phpcsFile->addFixableError(
-                'Calling class constructors must always include parentheses',
-                $stackPtr,
-                'missingParentheses'
-            );
-
+            $fix = $phpcsFile->addFixableError('Calling class constructors must always include parentheses', $stackPtr, 'missingParentheses');
             if ($fix === true) {
                 $phpcsFile->fixer->beginChangeset();
-                $classNameEnd = $phpcsFile->findNext(
-                    [
-                        T_WHITESPACE,
-                        T_NS_SEPARATOR,
-                        T_STRING,
-                        T_SELF,
-                        T_STATIC,
-                    ],
+                $classNameEnd = $phpcsFile->findNext([
+                    T_WHITESPACE,
+                    T_NS_SEPARATOR,
+                    T_STRING,
+                    T_SELF,
+                    T_STATIC,
+                ],
                     ($stackPtr + 1),
                     null,
                     true,

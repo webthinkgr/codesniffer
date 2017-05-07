@@ -9,10 +9,9 @@ use PHP_CodeSniffer\Util\Tokens;
 /**
  * Use statements to import classes must not begin with "\".
  *
- * Copied from `drupal/coder`
- *
- * @author Klaus Purer <klaus.purer@gmail.com>
- * @see https://github.com/klausi/coder
+ * @author Mark Scherer
+ * @see http://php.net/manual/en/aliases.php
+ * @see https://github.com/php-fig-rectified/psr2r-sniffer
  */
 final class LeadingBackSlashSniff implements Sniff
 {
@@ -47,9 +46,9 @@ final class LeadingBackSlashSniff implements Sniff
 
         if ($startPtr !== null && $tokens[$startPtr]['code'] === T_NS_SEPARATOR) {
             $fix = $phpcsFile->addFixableError(
-                'When importing a class with "use", do not include a leading \\',
+                'Namespaces in use statements should not start with a namespace separator',
                 $startPtr,
-                'SeparatorStart'
+                'NamespaceStart'
             );
 
             if ($fix === true) {

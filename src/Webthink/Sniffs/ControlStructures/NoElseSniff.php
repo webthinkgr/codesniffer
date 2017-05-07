@@ -12,7 +12,8 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * The rule was inspired by `Object Calisthenics` which disapproves the use of `else` tokens.
  *
- * @author George Mponos <gmponos@gmail.com>
+ * @author Tomáš Votruba <info@tomasvotruba.cz>
+ * @see https://github.com/object-calisthenics/phpcs-calisthenics-rules
  */
 final class NoElseSniff implements Sniff
 {
