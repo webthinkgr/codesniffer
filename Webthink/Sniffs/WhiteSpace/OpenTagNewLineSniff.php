@@ -2,7 +2,6 @@
 
 /**
  * Checks that there is exactly one newline after the PHP open tag.
- * The rule was copied from `drupal/coder`
  *
  * @author George Mponos <gmponos@gmail.com>
  */

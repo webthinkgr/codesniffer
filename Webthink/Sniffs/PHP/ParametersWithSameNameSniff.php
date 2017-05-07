@@ -5,10 +5,8 @@
  *
  * This is forbidden in PHP7.
  *
- * Copied from `wimg/PHPCompatibility`
- *
+ * @author George Mponos <gmponos@gmail.com>
  * @see http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.func-parameters
- * @see https://github.com/wimg/PHPCompatibility
  */
 class Webthink_Sniffs_PHP_ParametersWithSameNameSniff implements PHP_CodeSniffer_Sniff
 {
@@ -38,17 +36,13 @@ class Webthink_Sniffs_PHP_ParametersWithSameNameSniff implements PHP_CodeSniffer
             return;
         }
 
-        $paramNames = [];
+        $names = [];
         foreach ($parameters as $param) {
-            $paramNames[] = strtolower($param['name']);
+            $names[] = strtolower($param['name']);
         }
 
-        if (count($paramNames) != count(array_unique($paramNames))) {
-            $phpcsFile->addError(
-                'Functions must not have multiple parameters with the same name',
-                $stackPtr,
-                'Found'
-            );
+        if (count($names) != count(array_unique($names))) {
+            $phpcsFile->addError('Parameters of a function must not have the same name', $stackPtr, 'Found');
         }
     }
 }

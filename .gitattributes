@@ -8,4 +8,3 @@
 /.gitignore         export-ignore
 /.gitlab-ci.yml     export-ignore
 /phpunit.xml.dist   export-ignore
-/Xm/tests           export-ignore

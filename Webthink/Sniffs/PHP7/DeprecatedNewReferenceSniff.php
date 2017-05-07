@@ -1,13 +1,7 @@
 <?php
 
 /**
- * Discourages the use of assigning the return value of new by reference
- *
- * Inspired most from `wimg/php-compatibility` package.
- *
- * @see https://github.com/wimg/PHPCompatibility
- * @author Wim Godden <wim.godden@cu.be>
- * @copyright 2012 Cu.be Solutions bvba
+ * Disallows the use of assigning the return value of new by reference
  */
 class Webthink_Sniffs_PHP7_DeprecatedNewReferenceSniff implements PHP_CodeSniffer_Sniff
 {
@@ -31,7 +25,7 @@ class Webthink_Sniffs_PHP7_DeprecatedNewReferenceSniff implements PHP_CodeSniffe
             $phpcsFile->addError(
                 'Assigning the return value of new by reference is forbidden in PHP 7.x',
                 $stackPtr,
-                'Forbidden'
+                'ReturnByRef'
             );
         }
     }

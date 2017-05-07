@@ -7,7 +7,8 @@
  *
  * The rule was inspired by `Object Calisthenics` which disapproves the use of `else` tokens.
  *
- * @author George Mponos <gmponos@gmail.com>
+ * @author Tomáš Votruba <info@tomasvotruba.cz>
+ * @see https://github.com/object-calisthenics/phpcs-calisthenics-rules
  */
 class Webthink_Sniffs_ControlStructures_NoElseSniff implements PHP_CodeSniffer_Sniff
 {

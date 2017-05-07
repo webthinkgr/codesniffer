@@ -64,7 +64,6 @@ docs
 ### phpunit
 phpunit.xml
 build
-phpunit.xml
 
 ### Custom
 .htaccess

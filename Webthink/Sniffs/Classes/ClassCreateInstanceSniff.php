@@ -43,20 +43,16 @@ class Webthink_Sniffs_Classes_ClassCreateInstanceSniff implements PHP_CodeSniffe
         );
 
         if ($nextParenthesis === false || $tokens[$nextParenthesis]['line'] !== $tokens[$stackPtr]['line']) {
-            $fix = $phpcsFile->addFixableError(
-                'Calling class constructors must always include parentheses',
-                $stackPtr
-            );
+            $fix = $phpcsFile->addFixableError('Calling class constructors must always include parentheses', $stackPtr);
             if ($fix === true) {
                 $phpcsFile->fixer->beginChangeset();
-                $classNameEnd = $phpcsFile->findNext(
-                    [
-                        T_WHITESPACE,
-                        T_NS_SEPARATOR,
-                        T_STRING,
-                        T_SELF,
-                        T_STATIC,
-                    ],
+                $classNameEnd = $phpcsFile->findNext([
+                    T_WHITESPACE,
+                    T_NS_SEPARATOR,
+                    T_STRING,
+                    T_SELF,
+                    T_STATIC,
+                ],
                     ($stackPtr + 1),
                     null,
                     true,
@@ -69,8 +65,10 @@ class Webthink_Sniffs_Classes_ClassCreateInstanceSniff implements PHP_CodeSniffe
             }
         } else {
             if ($tokens[($nextParenthesis - 1)]['code'] === T_WHITESPACE) {
-                $error = 'Between the class name and the opening parenthesis spaces are not welcome';
-                $fix = $phpcsFile->addFixableError($error, ($nextParenthesis - 1));
+                $fix = $phpcsFile->addFixableError(
+                    'Between the class name and the opening parenthesis spaces are not welcome',
+                    ($nextParenthesis - 1)
+                );
                 if ($fix === true) {
                     $phpcsFile->fixer->beginChangeset();
                     $phpcsFile->fixer->replaceToken(($nextParenthesis - 1), '');

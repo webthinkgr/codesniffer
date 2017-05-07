@@ -2,12 +2,6 @@
 
 /**
  * Ensure that last element of multi-line array has a comma
- *
- * The rule was copied from `drupal/coder` and it was altered
- * in order to include only the last comma rule
- *
- * @author Klaus Purer <klaus.purer@gmail.com>
- * @see https://github.com/klausi/coder
  */
 class Webthink_Sniffs_Array_LastElementCommaSniff implements PHP_CodeSniffer_Sniff
 {
@@ -56,7 +50,6 @@ class Webthink_Sniffs_Array_LastElementCommaSniff implements PHP_CodeSniffer_Sni
 
         // Inline array.
         if ($tokens[$tokens[$stackPtr][$parenthesis_opener]]['line'] === $tokens[$tokens[$stackPtr][$parenthesis_closer]]['line']) {
-            // Check if this array contains
             return;
         }
 

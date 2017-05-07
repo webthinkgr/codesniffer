@@ -7,12 +7,6 @@ if (class_exists('Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true) === false) 
 /**
  * This sniff contains the deprecated functions from 5.x to 7 and also the ones from 7.0 to 7.1
  * It outputs a warning if any of these function has been used.
- *
- * Inspired most from `wimg/php-compatibility` package.
- *
- * @see https://github.com/wimg/PHPCompatibility
- * @author Wim Godden <wim.godden@cu.be>
- * @copyright 2012 Cu.be Solutions bvba
  */
 class Webthink_Sniffs_PHP7_DeprecatedFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
 {
