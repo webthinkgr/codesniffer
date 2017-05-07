@@ -8,10 +8,11 @@ use PHP_CodeSniffer\Util\Tokens;
 
 /**
  * Flag calling in_array() and array_search() without true as the third parameter.
+ * 
  * Copied and altered from WordPress Coding Standard.
  *
- * @see    https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
- * @author George Mponos <gmponos@gmail.com>
+ * @see https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
+ * @license https://opensource.org/licenses/MIT MIT
  */
 final class StrictModeInArraySniff implements Sniff
 {

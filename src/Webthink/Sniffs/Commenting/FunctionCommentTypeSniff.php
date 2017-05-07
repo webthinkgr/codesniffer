@@ -13,8 +13,7 @@ use PHP_CodeSniffer\Util\Tokens;
  *
  * Copied from cakephp-codesniffer
  *
- * @see    https://github.com/cakephp/cakephp-codesniffer
- * @author George Mponos <gmponos@gmail.com>
+ * @see https://github.com/cakephp/cakephp-codesniffer
  */
 final class FunctionCommentTypeSniff implements Sniff
 {
@@ -65,9 +64,9 @@ final class FunctionCommentTypeSniff implements Sniff
 
     /**
      * @param File $phpcsFile
-     * @param int                  $stackPtr
-     * @param string               $from
-     * @param string               $to
+     * @param int $stackPtr
+     * @param string $from
+     * @param string $to
      * @return void
      */
     protected function _check(File $phpcsFile, $stackPtr, $from, $to)

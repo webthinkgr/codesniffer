@@ -10,8 +10,9 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * Copied most of this from `wimg/php-compatibility` package.
  *
- * @see    https://github.com/wimg/PHPCompatibility
- * @author George Mponos <gmponos@gmail.com>
+ * @see https://github.com/wimg/PHPCompatibility
+ * @author Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @copyright 2012 Cu.be Solutions bvba
  */
 final class ForbiddenBreakContinueOutsideLoopSniff implements Sniff
 {

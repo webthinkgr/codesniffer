@@ -2,9 +2,14 @@
 
 namespace WebthinkSniffer\Sniffs\Commenting;
 
-use PHP_CodeSniffer\Sniffs\AbstractVariableSniff;
 use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\AbstractVariableSniff;
 
+/**
+ * Checks that the variable have the correct comments
+ *
+ * @author George Mponos <gmponos@gmail.com>
+ */
 final class VariableCommentSniff extends AbstractVariableSniff
 {
     /**

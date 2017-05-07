@@ -13,9 +13,10 @@ use PHP_CodeSniffer\Util\Tokens;
  * Copied most of this from `wimg/php-compatibility` package.
  * This sniff was altered in a way that I believe it's more readable.
  *
- * @see    http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.variable-handling
- * @see    https://github.com/wimg/PHPCompatibility
- * @author George Mponos <gmponos@gmail.com>
+ * @see http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.variable-handling
+ * @see https://github.com/wimg/PHPCompatibility
+ * @author Juliette Reinders Folmer <phpcompatibility_nospam@adviesenzo.nl>
+ * @copyright 2012 Cu.be Solutions bvba
  */
 final class VariableVariablesSniff implements Sniff
 {

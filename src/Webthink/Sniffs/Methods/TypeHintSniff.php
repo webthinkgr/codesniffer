@@ -26,9 +26,7 @@ class TypeHintSniff implements Sniff
     ];
 
     /**
-     * Registers the tokens that this sniff wants to listen for.
-     *
-     * @return integer[]
+     * @inheritdoc
      */
     public function register()
     {

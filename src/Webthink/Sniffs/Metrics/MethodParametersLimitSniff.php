@@ -8,7 +8,8 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 /**
  * The rule was inspired by Object Calisthenics.
  *
- * @author George Mponos <gmponos@gmail.com>
+ * @author Tomáš Votruba <info@tomasvotruba.cz>
+ * @see https://github.com/object-calisthenics/phpcs-calisthenics-rules
  */
 final class MethodParametersLimitSniff implements Sniff
 {
@@ -36,9 +37,7 @@ final class MethodParametersLimitSniff implements Sniff
     ];
 
     /**
-     * Registers the tokens that this sniff wants to listen for.
-     *
-     * @return integer[]
+     * @inheritdoc
      */
     public function register()
     {
@@ -47,6 +46,9 @@ final class MethodParametersLimitSniff implements Sniff
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function process(File $phpcsFile, $stackPtr)
     {
         $function = $phpcsFile->getDeclarationName($stackPtr);

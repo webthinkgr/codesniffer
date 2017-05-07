@@ -8,11 +8,11 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 /**
  * Discourages the use of assigning the return value of new by reference
  *
- * Copied most of this from `wimg/php-compatibility` package.
+ * Inspired most from `wimg/php-compatibility` package.
  *
- * @see    https://github.com/wimg/PHPCompatibility
- * @see    http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.new-by-ref
- * @author George Mponos <gmponos@gmail.com>
+ * @see https://github.com/wimg/PHPCompatibility
+ * @author Wim Godden <wim.godden@cu.be>
+ * @copyright 2012 Cu.be Solutions bvba
  */
 final class DeprecatedNewReferenceSniff implements Sniff
 {

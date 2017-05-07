@@ -17,7 +17,7 @@ use WebthinkSniffer\Helpers\Inflector;
  * > as they may be bound to obsolescence or renaming,
  * > which will lead to unportable script
  *
- * @see    http://php.net/manual/en/aliases.php
+ * @see http://php.net/manual/en/aliases.php
  * @author George Mponos <gmponos@gmail.com>
  */
 final class DiscouragedFunctionsSniff extends GenericForbiddenFunctionsSniff

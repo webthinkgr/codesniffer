@@ -7,12 +7,13 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Class create instance Test.
- * Checks the declaration of the class is correct. This sniff was copied from CodingStandard
  *
- * @package Codesniffer
- * @author  Peter Philipp <peter.philipp@cando-image.com>
- * @author  Alexander Obuhovich <aik.bold@gmail.com>
- * @see     https://github.com/aik099/CodingStandard
+ * Checks the declaration of the class is correct.
+ *
+ * @author Peter Philipp <peter.philipp@cando-image.com>
+ * @author Alexander Obuhovich <aik.bold@gmail.com>
+ * @license https://github.com/aik099/CodingStandard/blob/master/LICENSE BSD 3-Clause
+ * @see https://github.com/aik099/CodingStandard
  */
 final class ClassCreateInstanceSniff implements Sniff
 {

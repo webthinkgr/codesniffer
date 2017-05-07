@@ -11,6 +11,7 @@ use PHP_CodeSniffer\Util\Tokens;
  *
  * Copied from `drupal/coder`
  *
+ * @author Klaus Purer <klaus.purer@gmail.com>
  * @see https://github.com/klausi/coder
  */
 final class LeadingBackSlashSniff implements Sniff

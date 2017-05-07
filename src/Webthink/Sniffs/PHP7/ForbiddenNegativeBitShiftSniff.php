@@ -10,8 +10,9 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * Copied most of this from `wimg/php-compatibility` package.
  *
- * @see    https://github.com/wimg/PHPCompatibility
- * @author George Mponos <gmponos@gmail.com>
+ * @see https://github.com/wimg/PHPCompatibility
+ * @author Wim Godden <wim.godden@cu.be>
+ * @copyright 2012 Cu.be Solutions bvba
  */
 final class ForbiddenNegativeBitShiftSniff implements Sniff
 {

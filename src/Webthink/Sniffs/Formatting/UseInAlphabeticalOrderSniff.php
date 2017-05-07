@@ -77,11 +77,11 @@ final class UseInAlphabeticalOrderSniff implements Sniff
     /**
      * Check all the use tokens in a file.
      *
-     * @param File    $phpcsFile The file to check.
-     * @param integer $stackPtr  The index of the first use token.
+     * @param File $phpcsFile The file to check.
+     * @param integer $stackPtr The index of the first use token.
      * @return void
      */
-    protected function checkUseToken($phpcsFile, $stackPtr)
+    protected function checkUseToken(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         // If the use token is for a closure we want to ignore it.
         if ($this->isClosure($phpcsFile, $stackPtr)) {
@@ -119,7 +119,7 @@ final class UseInAlphabeticalOrderSniff implements Sniff
      * Check if the current stackPtr is a use token that is for a closure.
      *
      * @param File $phpcsFile
-     * @param int  $stackPtr
+     * @param int $stackPtr
      * @return bool
      */
     protected function isClosure($phpcsFile, $stackPtr)

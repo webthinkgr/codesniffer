@@ -11,7 +11,8 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * It was altered in order to ignore private/protected methods and also all magic methods of PHP.
  *
- * @author George Mponos <gmponos@gmail.com>
+ * @author Tomáš Votruba <info@tomasvotruba.cz>
+ * @see https://github.com/object-calisthenics/phpcs-calisthenics-rules
  */
 final class MethodPerClassLimitSniff implements Sniff
 {
@@ -108,7 +109,7 @@ final class MethodPerClassLimitSniff implements Sniff
      * Retrieve the list of class methods' pointers.
      *
      * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned
-     * @param int                         $stackPtr  The position of the current token in the stack passed in $tokens.
+     * @param int $stackPtr The position of the current token in the stack passed in $tokens.
      * @return array
      */
     private function getClassMethods(File $phpcsFile, $stackPtr)
@@ -150,7 +151,7 @@ final class MethodPerClassLimitSniff implements Sniff
      * Gets the scope modifier of a method.
      *
      * @param File $phpcsFile
-     * @param int  $stackPtr
+     * @param int $stackPtr
      * @return string
      */
     public function getModifier(File $phpcsFile, $stackPtr)

@@ -7,13 +7,13 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * This sniff checks if a function has parameters with the same name.
+ *
  * This is forbidden in PHP7.
  *
  * Copied from `wimg/PHPCompatibility`
  *
- * @see    http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.func-parameters
- * @see    https://github.com/wimg/PHPCompatibility
- * @author George Mponos <gmponos@gmail.com>
+ * @see http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.func-parameters
+ * @see https://github.com/wimg/PHPCompatibility
  */
 final class ParametersWithSameNameSniff implements Sniff
 {

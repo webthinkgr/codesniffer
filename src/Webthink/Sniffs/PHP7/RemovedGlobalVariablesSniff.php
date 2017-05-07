@@ -8,11 +8,13 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 /**
  * Disallows the use of removed global variables.
  *
- * Copied most of this from `wimg/php-compatibility` package.
+ * Copied most of this from `wimg/php-compatibility` package
+ * and changed it's codestyle.
  *
- * @see    http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.http-raw-post-data
- * @see    https://github.com/wimg/PHPCompatibility
- * @author George Mponos <gmponos@gmail.com>
+ * @see http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.http-raw-post-data
+ * @see https://github.com/wimg/PHPCompatibility
+ * @author Wim Godden <wim.godden@cu.be>
+ * @copyright 2012 Cu.be Solutions bvba
  */
 final class RemovedGlobalVariablesSniff implements Sniff
 {
@@ -38,11 +40,7 @@ final class RemovedGlobalVariablesSniff implements Sniff
     }
 
     /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
-     * @param int                         $stackPtr  The position of the current token in the stack passed in $tokens.
-     * @return void
+     * @inheritdoc
      */
     public function process(File $phpcsFile, $stackPtr)
     {

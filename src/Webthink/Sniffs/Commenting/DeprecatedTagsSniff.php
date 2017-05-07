@@ -8,8 +8,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 /**
  * Checks the usage of deprecated PHPDoc tags according to PSR-5.
  *
- * @package Codesniffer
- * @see     http://pear.php.net/package/PHP_CodeSniffer
+ * @see http://pear.php.net/package/PHP_CodeSniffer
  */
 final class DeprecatedTagsSniff implements Sniff
 {
@@ -30,11 +29,10 @@ final class DeprecatedTagsSniff implements Sniff
     {
         $tokens = $phpcsFile->getTokens();
         $content = $tokens[$stackPtr]['content'];
-        if (!in_array($content, ['@link', '@category', '@subpackage'])) {
+        if (!in_array($content, ['@link', '@category', '@subpackage'], true)) {
             return;
         }
 
-        $message = sprintf('PHPDoc %s tag is deprecated', $content);
-        $phpcsFile->addWarning($message, $stackPtr, 'Deprecated');
+        $phpcsFile->addWarning(sprintf('PHPDoc %s tag is deprecated', $content), $stackPtr, 'Deprecated');
     }
 }
