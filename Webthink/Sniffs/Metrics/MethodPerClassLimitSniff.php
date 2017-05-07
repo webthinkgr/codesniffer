@@ -105,7 +105,7 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
      * Retrieve the list of class methods' pointers.
      *
      * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                   $stackPtr  The position of the current token in the stack passed in $tokens.
+     * @param int $stackPtr The position of the current token in the stack passed in $tokens.
      * @return array
      */
     private function getClassMethods(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
@@ -147,7 +147,7 @@ class Webthink_Sniffs_Metrics_MethodPerClassLimitSniff implements PHP_CodeSniffe
      * Gets the scope modifier of a method.
      *
      * @param PHP_CodeSniffer_File $phpcsFile
-     * @param int                  $stackPtr
+     * @param int $stackPtr
      * @return string|null
      */
     public function getModifier(PHP_CodeSniffer_File $phpcsFile, $stackPtr)

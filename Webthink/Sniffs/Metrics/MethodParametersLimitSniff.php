@@ -9,7 +9,6 @@
  */
 class Webthink_Sniffs_Metrics_MethodParametersLimitSniff implements PHP_CodeSniffer_Sniff
 {
-
     /**
      * Maximum amount of methods per class.
      *
@@ -34,9 +33,7 @@ class Webthink_Sniffs_Metrics_MethodParametersLimitSniff implements PHP_CodeSnif
     ];
 
     /**
-     * Registers the tokens that this sniff wants to listen for.
-     *
-     * @return integer[]
+     * @inheritdoc
      */
     public function register()
     {
@@ -45,6 +42,9 @@ class Webthink_Sniffs_Metrics_MethodParametersLimitSniff implements PHP_CodeSnif
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         $function = $phpcsFile->getDeclarationName($stackPtr);

@@ -8,9 +8,7 @@
 class Webthink_Sniffs_Commenting_DeprecatedTagsSniff implements PHP_CodeSniffer_Sniff
 {
     /**
-     * Returns an array of tokens this test wants to listen for.
-     *
-     * @return array
+     * @inheritdoc
      */
     public function register()
     {
@@ -18,21 +16,16 @@ class Webthink_Sniffs_Commenting_DeprecatedTagsSniff implements PHP_CodeSniffer_
     }
 
     /**
-     * Processes this test, when one of its tokens is encountered.
-     *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int $stackPtr The position of the current token in the stack passed in $tokens.
-     * @return void
+     * @inheritdoc
      */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
         $content = $tokens[$stackPtr]['content'];
-        if (!in_array($content, ['@link', '@category', '@subpackage'])) {
+        if (!in_array($content, ['@link', '@category', '@subpackage'], true)) {
             return;
         }
 
-        $message = sprintf('PHPDoc %s tag is deprecated', $content);
-        $phpcsFile->addWarning($message, $stackPtr, 'Deprecated');
+        $phpcsFile->addWarning(sprintf('PHPDoc %s tag is deprecated', $content), $stackPtr, 'Deprecated');
     }
 }

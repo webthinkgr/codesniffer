@@ -1,14 +1,4 @@
 <?php
-/**
- * PHP version 5
- *
- * @category PHP
- * @package  PHP_CodeSniffer
- * @author   Peter Philipp <peter.philipp@cando-image.com>
- * @author   Alexander Obuhovich <aik.bold@gmail.com>
- * @license  https://github.com/aik099/CodingStandard/blob/master/LICENSE BSD 3-Clause
- * @link     https://github.com/aik099/CodingStandard
- */
 
 /**
  * Class create instance Test.
@@ -17,7 +7,6 @@
  *
  * @author Peter Philipp <peter.philipp@cando-image.com>
  * @author Alexander Obuhovich <aik.bold@gmail.com>
- * @author George Mponos <gmponos@gmail.com>
  * @license https://github.com/aik099/CodingStandard/blob/master/LICENSE BSD 3-Clause
  * @see https://github.com/aik099/CodingStandard
  */

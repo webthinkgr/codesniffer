@@ -17,12 +17,7 @@ if (class_exists('Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true) === false) 
 class Webthink_Sniffs_PHP7_RemovedFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
 {
     /**
-     * A list of forbidden functions with their alternatives.
-     *
-     * The value is NULL if no alternative exists. IE, the
-     * function should just not be used.
-     *
-     * @var array(string => string|null)
+     * @inheritdoc
      */
     public $forbiddenFunctions = [
         'call_user_method' => 'call_user_func',
@@ -140,9 +135,7 @@ class Webthink_Sniffs_PHP7_RemovedFunctionsSniff extends Generic_Sniffs_PHP_Forb
     ];
 
     /**
-     * If true, an error will be thrown; otherwise a warning.
-     *
-     * @var bool
+     * @inheritdoc
      */
     public $error = true;
 

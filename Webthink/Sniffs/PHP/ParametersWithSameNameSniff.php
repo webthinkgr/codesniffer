@@ -2,6 +2,7 @@
 
 /**
  * This sniff checks if a function has parameters with the same name.
+ *
  * This is forbidden in PHP7.
  *
  * Copied from `wimg/PHPCompatibility`
@@ -31,11 +32,13 @@ class Webthink_Sniffs_PHP_ParametersWithSameNameSniff implements PHP_CodeSniffer
         if (isset($token['scope_opener']) === false) {
             return;
         }
+
         // Get all parameters from method signature.
         $parameters = $phpcsFile->getMethodParameters($stackPtr);
         if (empty($parameters) || is_array($parameters) === false) {
             return;
         }
+
         $paramNames = [];
         foreach ($parameters as $param) {
             $paramNames[] = strtolower($param['name']);

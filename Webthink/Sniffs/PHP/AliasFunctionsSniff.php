@@ -9,9 +9,8 @@
  * > as they may be bound to obsolescence or renaming,
  * > which will lead to unportable script
  *
- * @author George Mponos <gmponos@gmail.com>
  * @author Mark Scherer
- * @license MIT
+ * @author George Mponos <gmponos@gmail.com>
  * @see http://php.net/manual/en/aliases.php
  * @see https://github.com/php-fig-rectified/psr2r-sniffer
  */

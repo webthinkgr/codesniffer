@@ -12,6 +12,9 @@ if (class_exists('Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true) === false) 
  */
 class Webthink_Sniffs_PHP7_DeprecatedFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
 {
+    /**
+     * @inheritdoc
+     */
     public $forbiddenFunctions = [
         'ldap_sort' => null,
         'mcrypt_create_iv' => 'OpenSSL',
@@ -49,7 +52,7 @@ class Webthink_Sniffs_PHP7_DeprecatedFunctionsSniff extends Generic_Sniffs_PHP_F
     ];
 
     /**
-     * @var bool
+     * @inheritdoc
      */
     public $error = false;
 

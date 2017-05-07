@@ -5,7 +5,7 @@
  *
  * Copied from `drupal/coder`
  *
- * @author Klaus Purer <@klausi>
+ * @author Klaus Purer <klaus.purer@gmail.com>
  * @author George Mponos <gmponos@gmail.com>
  * @see https://github.com/klausi/coder
  */

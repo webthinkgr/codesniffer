@@ -6,12 +6,11 @@ if (class_exists('Generic_Sniffs_PHP_NoSilencedErrorsSniff', true) === false) {
 
 /**
  * Throws an error or warning when any code prefixed with an asperand is encountered.
+ *
  * The rule was found on github and it was copied and altered in order to ignore the
  * `trigger_error` functions and the `fopen` functions.
  *
- * @package Codesniffer
- * @author  George Mponos <gmponos@gmail.com>
- * @author  Alexander Obuhovich <aik.bold@gmail.com>
+ * @author Alexander Obuhovich <aik.bold@gmail.com>
  * @see https://github.com/aik099/CodingStandard
  */
 class Webthink_Sniffs_PHP_NoSilencedErrorsSniff extends Generic_Sniffs_PHP_NoSilencedErrorsSniff
@@ -35,7 +34,7 @@ class Webthink_Sniffs_PHP_NoSilencedErrorsSniff extends Generic_Sniffs_PHP_NoSil
      * Processes this test, when one of its tokens is encountered.
      *
      * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token in the stack passed in $tokens.
+     * @param int $stackPtr The position of the current token in the stack passed in $tokens.
      * @return void
      */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)

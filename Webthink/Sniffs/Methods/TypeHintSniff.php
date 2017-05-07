@@ -11,7 +11,6 @@
  */
 class Webthink_Sniffs_Methods_TypeHintSniff implements PHP_CodeSniffer_Sniff
 {
-
     /**
      * Supported list of tokenizers supported by this sniff.
      *
@@ -22,9 +21,7 @@ class Webthink_Sniffs_Methods_TypeHintSniff implements PHP_CodeSniffer_Sniff
     ];
 
     /**
-     * Registers the tokens that this sniff wants to listen for.
-     *
-     * @return integer[]
+     * @inheritdoc
      */
     public function register()
     {
@@ -33,6 +30,9 @@ class Webthink_Sniffs_Methods_TypeHintSniff implements PHP_CodeSniffer_Sniff
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         $function = $phpcsFile->getDeclarationName($stackPtr);
