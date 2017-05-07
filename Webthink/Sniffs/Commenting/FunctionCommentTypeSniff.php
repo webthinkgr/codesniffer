@@ -8,6 +8,7 @@
  * Copied from cakephp-codesniffer
  *
  * @see https://github.com/cakephp/cakephp-codesniffer
+ * @license MIT
  */
 class Webthink_Sniffs_Commenting_FunctionCommentTypeSniff implements PHP_CodeSniffer_Sniff
 {

@@ -9,6 +9,7 @@ if (class_exists('Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true) === false) 
  * Also suggests an alternative if one exists.
  *
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class Webthink_Sniffs_PHP7_RemovedFunctionsSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
 {

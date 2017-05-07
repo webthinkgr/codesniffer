@@ -4,6 +4,7 @@
  * Checks the usage of deprecated PHPDoc tags according to PSR-5.
  *
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class Webthink_Sniffs_Commenting_DeprecatedTagsSniff implements PHP_CodeSniffer_Sniff
 {

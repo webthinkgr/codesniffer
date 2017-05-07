@@ -6,6 +6,7 @@
  *
  * @see Squiz_Sniffs_WhiteSpace_LanguageConstructSpacingSniff
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class Webthink_Sniffs_WhiteSpace_LanguageConstructSpacingSniff extends Squiz_Sniffs_WhiteSpace_LanguageConstructSpacingSniff
 {

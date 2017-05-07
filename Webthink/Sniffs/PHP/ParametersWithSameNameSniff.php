@@ -7,6 +7,7 @@
  *
  * @author George Mponos <gmponos@gmail.com>
  * @see http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.func-parameters
+ * @license MIT
  */
 class Webthink_Sniffs_PHP_ParametersWithSameNameSniff implements PHP_CodeSniffer_Sniff
 {

@@ -12,6 +12,7 @@ if (class_exists('Generic_Sniffs_PHP_NoSilencedErrorsSniff', true) === false) {
  *
  * @author Alexander Obuhovich <aik.bold@gmail.com>
  * @see https://github.com/aik099/CodingStandard
+ * @license https://github.com/aik099/CodingStandard/blob/master/LICENSE BSD 3-Clause
  */
 class Webthink_Sniffs_PHP_NoSilencedErrorsSniff extends Generic_Sniffs_PHP_NoSilencedErrorsSniff
 {

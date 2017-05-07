@@ -9,6 +9,7 @@
  * Copied from cakephp-codesniffer
  *
  * @see https://github.com/cakephp/cakephp-codesniffer
+ * @license MIT
  */
 class Webthink_Sniffs_PHP_TypeCastingSniff implements PHP_CodeSniffer_Sniff
 {

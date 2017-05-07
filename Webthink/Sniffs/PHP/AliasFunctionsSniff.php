@@ -12,6 +12,7 @@
  * @author Mark Scherer
  * @see http://php.net/manual/en/aliases.php
  * @see https://github.com/php-fig-rectified/psr2r-sniffer
+ * @license MIT
  */
 class Webthink_Sniffs_PHP_AliasFunctionsSniff implements PHP_CodeSniffer_Sniff
 {

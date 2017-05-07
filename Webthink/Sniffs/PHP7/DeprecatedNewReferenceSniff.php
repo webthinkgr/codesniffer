@@ -2,6 +2,9 @@
 
 /**
  * Disallows the use of assigning the return value of new by reference
+ *
+ * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class Webthink_Sniffs_PHP7_DeprecatedNewReferenceSniff implements PHP_CodeSniffer_Sniff
 {

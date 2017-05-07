@@ -5,6 +5,7 @@
  * The rule was copied from `cakephp/cakephp-codesniffer`
  *
  * @see https://github.com/cakephp/cakephp-codesniffer
+ * @license MIT
  */
 class Webthink_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_CodeSniffer_Sniff
 {

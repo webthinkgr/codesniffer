@@ -8,6 +8,7 @@
  * and classes to access the SuperGlobal variables of PHP in a safe way.
  *
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class Webthink_Sniffs_PHP_SuperGlobalsSniff implements PHP_CodeSniffer_Sniff
 {

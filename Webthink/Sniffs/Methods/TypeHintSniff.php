@@ -8,6 +8,7 @@
  * enforce importing PHP core FQCN.
  *
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class Webthink_Sniffs_Methods_TypeHintSniff implements PHP_CodeSniffer_Sniff
 {

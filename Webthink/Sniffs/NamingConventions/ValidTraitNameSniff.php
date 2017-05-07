@@ -4,6 +4,7 @@
  * Ensures trait names are correct.
  *
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class Webthink_Sniffs_NamingConventions_ValidTraitNameSniff implements PHP_CodeSniffer_Sniff
 {

@@ -8,6 +8,7 @@
  * @todo   we need to check that destruct function is the last.
  * @todo   we need to check the order in multiple classes in the same file.
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class Webthink_Sniffs_Methods_OrderSniff implements PHP_CodeSniffer_Sniff
 {

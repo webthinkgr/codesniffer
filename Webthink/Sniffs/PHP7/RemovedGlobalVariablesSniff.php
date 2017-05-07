@@ -5,6 +5,7 @@
  *
  * @see http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.http-raw-post-data
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class Webthink_Sniffs_PHP7_RemovedGlobalVariablesSniff implements PHP_CodeSniffer_Sniff
 {

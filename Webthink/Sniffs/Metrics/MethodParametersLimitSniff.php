@@ -5,6 +5,7 @@
  *
  * @author Tomáš Votruba <info@tomasvotruba.cz>
  * @see https://github.com/object-calisthenics/phpcs-calisthenics-rules
+ * @license MIT
  */
 class Webthink_Sniffs_Metrics_MethodParametersLimitSniff implements PHP_CodeSniffer_Sniff
 {

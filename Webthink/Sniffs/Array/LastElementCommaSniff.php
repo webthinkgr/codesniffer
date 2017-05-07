@@ -4,6 +4,7 @@
  * Ensure that last element of multi-line array has a comma
  *
  * @see Squiz_Sniffs_Arrays_ArrayDeclarationSniff
+ * @license MIT
  */
 class Webthink_Sniffs_Array_LastElementCommaSniff implements PHP_CodeSniffer_Sniff
 {

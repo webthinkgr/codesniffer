@@ -4,6 +4,7 @@
  * Checks that there is exactly one newline after the PHP open tag.
  *
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class Webthink_Sniffs_WhiteSpace_OpenTagNewLineSniff implements PHP_CodeSniffer_Sniff
 {
