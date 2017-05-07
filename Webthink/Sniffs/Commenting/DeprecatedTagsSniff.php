@@ -3,7 +3,7 @@
 /**
  * Checks the usage of deprecated PHPDoc tags according to PSR-5.
  *
- * @see http://pear.php.net/package/PHP_CodeSniffer
+ * @author George Mponos <gmponos@gmail.com>
  */
 class Webthink_Sniffs_Commenting_DeprecatedTagsSniff implements PHP_CodeSniffer_Sniff
 {

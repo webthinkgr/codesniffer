@@ -2,6 +2,8 @@
 
 /**
  * Ensure that last element of multi-line array has a comma
+ *
+ * @see Squiz_Sniffs_Arrays_ArrayDeclarationSniff
  */
 class Webthink_Sniffs_Array_LastElementCommaSniff implements PHP_CodeSniffer_Sniff
 {
@@ -60,9 +62,9 @@ class Webthink_Sniffs_Array_LastElementCommaSniff implements PHP_CodeSniffer_Sni
             && isset(PHP_CodeSniffer_Tokens::$heredocTokens[$tokens[$lastItem]['code']]) === false
         ) {
             $fix = $phpcsFile->addFixableError(
-                'A comma should follow the last multi-line array item.',
+                'A comma should follow the last element of a multi-line array.',
                 $lastItem,
-                'CommaLastItem'
+                'CommaAfterLast'
             );
 
             if ($fix === true) {
