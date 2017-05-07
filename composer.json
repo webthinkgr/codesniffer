@@ -6,6 +6,7 @@
         "review",
         "sniff"
     ],
+    "license": "MIT",
     "authors": [
         {
             "name": "George Mponos",
