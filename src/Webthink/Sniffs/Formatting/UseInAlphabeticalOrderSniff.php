@@ -122,7 +122,7 @@ final class UseInAlphabeticalOrderSniff implements Sniff
      * @param int $stackPtr
      * @return bool
      */
-    protected function isClosure($phpcsFile, $stackPtr)
+    protected function isClosure(File $phpcsFile, $stackPtr)
     {
         return $phpcsFile->findPrevious(
             [T_CLOSURE],
