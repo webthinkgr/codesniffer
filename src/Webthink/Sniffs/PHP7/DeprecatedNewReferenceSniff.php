@@ -7,6 +7,9 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Disallows the use of assigning the return value of new by reference
+ *
+ * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 final class DeprecatedNewReferenceSniff implements Sniff
 {

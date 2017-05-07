@@ -13,6 +13,7 @@ use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\NoSilencedErrorsSniff as Generi
  *
  * @author Alexander Obuhovich <aik.bold@gmail.com>
  * @see https://github.com/aik099/CodingStandard
+ * @license https://github.com/aik099/CodingStandard/blob/master/LICENSE BSD 3-Clause
  */
 final class NoSilencedErrorsSniff extends GenericNoSilencedErrorsSniff
 {

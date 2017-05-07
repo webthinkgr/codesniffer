@@ -19,6 +19,7 @@ use WebthinkSniffer\Helpers\Inflector;
  *
  * @see http://php.net/manual/en/aliases.php
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 final class DiscouragedFunctionsSniff extends GenericForbiddenFunctionsSniff
 {

@@ -10,6 +10,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * @see http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.http-raw-post-data
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 final class RemovedGlobalVariablesSniff implements Sniff
 {

@@ -13,6 +13,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * enforce importing PHP core FQCN.
  *
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class TypeHintSniff implements Sniff
 {

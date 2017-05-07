@@ -7,6 +7,9 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Bitwise shifts by negative number will throw an ArithmeticError in PHP 7.0.
+ *
+ * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 final class ForbiddenNegativeBitShiftSniff implements Sniff
 {

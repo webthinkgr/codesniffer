@@ -9,6 +9,7 @@ use PHP_CodeSniffer\Sniffs\AbstractVariableSniff;
  * Checks that the variable have the correct comments
  *
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 final class VariableCommentSniff extends AbstractVariableSniff
 {

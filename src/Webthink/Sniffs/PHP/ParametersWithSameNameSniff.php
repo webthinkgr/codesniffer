@@ -12,6 +12,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * @author George Mponos <gmponos@gmail.com>
  * @see http://php.net/manual/en/migration70.incompatible.php#migration70.incompatible.other.func-parameters
+ * @license MIT
  */
 final class ParametersWithSameNameSniff implements Sniff
 {

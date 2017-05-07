@@ -12,6 +12,7 @@ use PHP_CodeSniffer\Util\Tokens;
  * @author Mark Scherer
  * @see http://php.net/manual/en/aliases.php
  * @see https://github.com/php-fig-rectified/psr2r-sniffer
+ * @license MIT
  */
 final class LeadingBackSlashSniff implements Sniff
 {

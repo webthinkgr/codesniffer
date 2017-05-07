@@ -13,6 +13,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * and classes to access the SuperGlobal variables of PHP in a safe way.
  *
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 final class SuperGlobalsSniff implements Sniff
 {

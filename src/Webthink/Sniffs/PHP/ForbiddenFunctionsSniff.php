@@ -9,6 +9,7 @@ use WebthinkSniffer\Helpers\Inflector;
  * This rule is created to override the default Forbidden functions
  *
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 final class ForbiddenFunctionsSniff extends GenericForbiddenFunctionsSniff
 {

@@ -10,6 +10,7 @@ use PHP_CodeSniffer\Util\Tokens;
  * Ensure that last element of multi-line array has a comma
  *
  * @see Squiz_Sniffs_Arrays_ArrayDeclarationSniff
+ * @license MIT
  */
 final class LastElementCommaSniff implements Sniff
 {

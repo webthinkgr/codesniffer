@@ -14,6 +14,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * @author Tomáš Votruba <info@tomasvotruba.cz>
  * @see https://github.com/object-calisthenics/phpcs-calisthenics-rules
+ * @license MIT
  */
 final class NoElseSniff implements Sniff
 {

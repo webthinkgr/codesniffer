@@ -7,6 +7,9 @@ use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff;
 /**
  * This sniff contains the deprecated functions from 5.x to 7 and also the ones from 7.0 to 7.1
  * It outputs a warning if any of these function has been used.
+ *
+ * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 final class DeprecatedFunctionsSniff extends ForbiddenFunctionsSniff
 {

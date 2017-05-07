@@ -10,6 +10,7 @@ use PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\LanguageConstructSpacingSn
  *
  * @see Squiz_Sniffs_WhiteSpace_LanguageConstructSpacingSniff
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class LanguageConstructSpacingSniff extends SquizLanguageConstructSpacingSniff
 {

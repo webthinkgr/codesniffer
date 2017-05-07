@@ -11,9 +11,9 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * This rule was mostly copied from Squiz.WhiteSpace.SuperfluousWhitespaceSniff and altered
  * in order not to allow multiple empty lines inside classes.
  *
- * @package Codesniffer
  * @author  George Mponos <gmponos@gmail.com>
- * @see     \PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\SuperfluousWhitespaceSniff
+ * @see \PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\SuperfluousWhitespaceSniff
+ * @license MIT
  */
 final class ClassEmptyLinesSniff implements Sniff
 {

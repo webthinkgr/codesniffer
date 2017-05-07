@@ -8,10 +8,8 @@ use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff;
  * This sniff checks about functions that have been removed in PHP 7 and throws an error.
  * Also suggests an alternative if one exists.
  *
- * Copied most of this from `wimg/php-compatibility` package.
- *
- * @see    https://github.com/wimg/PHPCompatibility
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class RemovedFunctionsSniff extends ForbiddenFunctionsSniff
 {

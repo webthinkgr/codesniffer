@@ -13,6 +13,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @todo   we need to check that destruct function is the last.
  * @todo   we need to check the order in multiple classes in the same file.
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 class OrderSniff implements Sniff
 {

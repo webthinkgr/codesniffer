@@ -17,6 +17,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @author Mark Scherer
  * @see http://php.net/manual/en/aliases.php
  * @see https://github.com/php-fig-rectified/psr2r-sniffer
+ * @license MIT
  */
 final class AliasFunctionsSniff implements Sniff
 {

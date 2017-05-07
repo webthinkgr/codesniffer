@@ -9,6 +9,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * Ensures trait names are correct.
  *
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 final class ValidTraitNameSniff implements Sniff
 {

@@ -9,6 +9,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * Checks that a call was not made to an object directly from an array.
  *
  * @author George Mponos <gmponos@gmail.com>
+ * @license MIT
  */
 final class ObjectCallsSniff implements Sniff
 {

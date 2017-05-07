@@ -10,6 +10,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * The rule was copied from `cakephp/cakephp-codesniffer`
  *
  * @see https://github.com/cakephp/cakephp-codesniffer
+ * @license MIT
  */
 final class UseInAlphabeticalOrderSniff implements Sniff
 {
