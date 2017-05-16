@@ -37,7 +37,7 @@ final class OpenTagNewLineSniff implements Sniff
 
         $next = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), null, true);
 
-        // If there is no furhter content in this file ignore it.
+        // If there is no further content in this file ignore it.
         if ($next === false) {
             return (count($tokens) + 1);
         }
