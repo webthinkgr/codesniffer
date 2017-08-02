@@ -2,6 +2,11 @@
 
 namespace WebthinkSniffer\Helpers;
 
+/**
+ * Class Inflector
+ *
+ * @internal
+ */
 class Inflector
 {
     /**
