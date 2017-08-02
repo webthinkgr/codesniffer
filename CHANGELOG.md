@@ -2,23 +2,21 @@
 
 All Notable changes of `webthink/codesniffer` will be documented in this file. See this [url](http://keepachangelog.com/)
 
-## v1.0.0
+## v1.0.0 - 2017-08-02
 
 ### Added
-- Added a custom rule for silenced errors which excludes the `fopen` and `trigger_error` functions.
+- Created a custom rule for silenced errors which excludes the `fopen` and `trigger_error` functions.
     - We already apply this rule but without the excluded functions.
-- Added a custom rule which does not allow more than one space between the `namespace` keyword and the actual namespace.
+- Created a custom rule which does not allow more than one space between the `namespace` keyword and the actual namespace.
     - The rule will be autofixable.
-- Added a custom rule that disallows the instantiation of a class without parenthesis.
+- Created a custom rule that disallows the instantiation of a class without parenthesis.
     - This rule is applied according to [PSR-12][PSR-12] draft version.
     - The rule will be autofixable.
-- Added a custom rule for disallowing the type cast using long form types.
+- Created a custom rule for disallowing the type cast using long form types.
     - This rule is applied according to [PSR-12][PSR-12] draft version and according to our team guidelines.
     - Long forms are `(integer)` and `(boolean)` and Short forms are `(int)` and `(bool)`.
-- Added a custom rule for disallowing deprecated PHPDoc tags according to [PSR-5][PSR-5] draft version.
+- Created a custom rule for disallowing deprecated PHPDoc tags according to [PSR-5][PSR-5] draft version.
     - It will be a warning.
-- Added a [ruleset.xml](Webthink/ruleset.xml) that has the basic staff of rules.
-    - Developers can override everything on the projects that the ruleset is included.
 - Created a new custom sniff that adds a comma to the last element of a multiline array.
     - If in the future you add more elements to the array you will change only one line not two.
 - Created a new custom sniff that ensures that params in PHPDoc use short forms.
@@ -50,6 +48,8 @@ All Notable changes of `webthink/codesniffer` will be documented in this file. S
         - `password_hash` is deprecated in PHP.
         - `mcrypt_encrypt` is deprecated in PHP.
         - `mcrypt_create_iv` is deprecated in PHP.
+- Created a [ruleset.xml](src/Webthink/ruleset.xml) that has the basic staff of rules.
+    - Developers can override everything on the projects that the ruleset is included.
 
 [PSR-5]: https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md
 [PSR-12]: https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md
