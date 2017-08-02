@@ -15,7 +15,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @author George Mponos <gmponos@gmail.com>
  * @license MIT
  */
-class TypeHintSniff implements Sniff
+final class TypeHintSniff implements Sniff
 {
     /**
      * Supported list of tokenizers supported by this sniff.

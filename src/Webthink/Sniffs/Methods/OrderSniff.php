@@ -15,7 +15,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * @author George Mponos <gmponos@gmail.com>
  * @license MIT
  */
-class OrderSniff implements Sniff
+final class OrderSniff implements Sniff
 {
     /**
      * Supported list of tokenizers supported by this sniff.
