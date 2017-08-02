@@ -29,8 +29,8 @@ final class ValidInterfaceNameSniff implements Sniff
     public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
-        $traitName = $tokens[$stackPtr + 2]['content'];
-        if (substr($traitName, -9) !== 'Interface') {
+        $name = $tokens[$stackPtr + 2]['content'];
+        if (substr($name, -9) !== 'Interface') {
             $phpcsFile->addError(
                 'Interfaces must have an "Interface" suffix.',
                 $stackPtr,

@@ -29,8 +29,8 @@ final class ValidTraitNameSniff implements Sniff
     public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
-        $traitName = $tokens[$stackPtr + 2]['content'];
-        if (substr($traitName, -5) !== 'Trait') {
+        $name = $tokens[$stackPtr + 2]['content'];
+        if (substr($name, -5) !== 'Trait') {
             $phpcsFile->addError(
                 'Traits must have a "Trait" suffix.',
                 $stackPtr,

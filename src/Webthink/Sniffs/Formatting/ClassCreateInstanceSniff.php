@@ -10,6 +10,9 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * Checks the declaration of the class is correct.
  *
+ * The reason that this was copied is because at that time the original had a bug
+ * https://github.com/aik099/CodingStandard/pull/100
+ *
  * @author Peter Philipp <peter.philipp@cando-image.com>
  * @author Alexander Obuhovich <aik.bold@gmail.com>
  * @license https://github.com/aik099/CodingStandard/blob/master/LICENSE BSD 3-Clause
