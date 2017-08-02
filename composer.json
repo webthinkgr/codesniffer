@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "WebthinkSniffer\\": "src/Webthink"
+            "WebthinkSniffer\\Webthink\\": "src/Webthink"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "WebthinkSniffer\\Tests\\": "tests"
+            "WebthinkSniffer\\Webthink\\Tests\\": "tests"
         }
     },
     "extra": {

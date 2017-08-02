@@ -1,6 +1,6 @@
 <?php
 
-namespace WebthinkSniffer\Sniffs\WhiteSpace;
+namespace WebthinkSniffer\Webthink\Sniffs\WhiteSpace;
 
 use PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\LanguageConstructSpacingSniff as SquizLanguageConstructSpacingSniff;
 

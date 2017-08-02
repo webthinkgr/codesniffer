@@ -1,6 +1,6 @@
 <?php
 
-namespace WebthinkSniffer\Sniffs\PHP;
+namespace WebthinkSniffer\Webthink\Sniffs\PHP;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\NoSilencedErrorsSniff as GenericNoSilencedErrorsSniff;

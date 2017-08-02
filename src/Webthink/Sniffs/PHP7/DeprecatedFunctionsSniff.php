@@ -1,6 +1,6 @@
 <?php
 
-namespace WebthinkSniffer\Sniffs\PHP7;
+namespace WebthinkSniffer\Webthink\Sniffs\PHP7;
 
 use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff;
 

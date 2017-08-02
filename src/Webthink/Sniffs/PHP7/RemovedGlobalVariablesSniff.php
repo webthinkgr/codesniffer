@@ -1,6 +1,6 @@
 <?php
 
-namespace WebthinkSniffer\Sniffs\PHP7;
+namespace WebthinkSniffer\Webthink\Sniffs\PHP7;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;

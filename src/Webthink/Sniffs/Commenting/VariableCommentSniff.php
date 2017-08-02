@@ -1,6 +1,6 @@
 <?php
 
-namespace WebthinkSniffer\Sniffs\Commenting;
+namespace WebthinkSniffer\Webthink\Sniffs\Commenting;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\AbstractVariableSniff;
