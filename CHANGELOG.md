@@ -2,7 +2,7 @@
 
 All Notable changes of `webthink/codesniffer` will be documented in this file. See this [url](http://keepachangelog.com/)
 
-## v1.0.0
+## v1.0.0 - 2017-08-02
 
 ### Added
 - Created a custom rule for silenced errors which excludes the `fopen` and `trigger_error` functions.
