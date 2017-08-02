@@ -2,6 +2,11 @@
 
 All Notable changes of `webthink/codesniffer` will be documented in this file. See this [url](http://keepachangelog.com/)
 
+## v1.0.1 - 2017-08-02
+
+## Fix
+- Sniff `Formatting.ClassCreateInstanceSniff` was using the function `each` that is deprecated in PHP 7.2
+
 ## v1.0.0 - 2017-08-02
 
 ### Added
