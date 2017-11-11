@@ -69,6 +69,7 @@
             <property name="ignoreNewlines" value="true" />
         </properties>
     </rule>
+    <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace" />
     <rule ref="Squiz.WhiteSpace.SemicolonSpacing" />
     <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
         <properties>
@@ -103,6 +104,11 @@
     <rule ref="Webthink.Metrics.MethodParametersLimit">
         <!-- Relax some rules for tests -->
         <exclude-pattern>*/tests/*</exclude-pattern>
+    </rule>
+
+    <rule ref="Webthink.NamingConventions">
+        <exclude name="Webthink.NamingConventions.PluralClassName" />
+        <exclude name="Webthink.NamingConventions.SingularClassName" />
     </rule>
 
     <!-- Rules related to comments -->
