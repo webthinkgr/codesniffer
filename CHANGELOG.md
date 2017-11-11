@@ -2,6 +2,12 @@
 
 All Notable changes of `webthink/codesniffer` will be documented in this file. See this [url](http://keepachangelog.com/)
 
+## v1.1.0 - 2017-11-11
+
+### Added
+- Added a new sniff for enforcing Plural Class naming.
+- Added a new sniff for enforcing Singular Class naming.
+
 ## v1.0.1 - 2017-08-02
 
 ## Fix
