@@ -10,7 +10,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * For now it only checks if the `__construct` exists to be the first one in the class.
  *
- * @todo   we need to check that destruct function is the last.
  * @todo   we need to check the order in multiple classes in the same file.
  * @author George Mponos <gmponos@gmail.com>
  * @license MIT

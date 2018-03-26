@@ -14,6 +14,9 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  */
 final class SingularClassNameSniff implements Sniff
 {
+    /**
+     * @var array
+     */
     public $dictionaryExclusions = [];
 
     /**

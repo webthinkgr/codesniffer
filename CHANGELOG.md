@@ -2,6 +2,14 @@
 
 All Notable changes of `webthink/codesniffer` will be documented in this file. See this [url](http://keepachangelog.com/)
 
+## v2.0.0 - 2018-03-25
+
+### Changed
+- Support PHP > 7.1 hence the sniffs for checking the code if it is compatible against PHP 7 were removed.
+Since Codesniffer v3.x has started using namespaces package `wimg/php-compatibility` has also migrated to that version
+of codesniffer and made it's install procedure easier through composer. If you still want to check your code against
+PHP 7. So I suggest using that package.
+
 ## v1.1.0 - 2017-11-11
 
 ### Added

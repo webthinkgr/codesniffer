@@ -2,8 +2,8 @@
 
 namespace WebthinkSniffer\Webthink\Sniffs\PHP;
 
+use Doctrine\Common\Inflector\Inflector;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff as GenericForbiddenFunctionsSniff;
-use WebthinkSniffer\Helpers\Inflector;
 
 /**
  * This rule is created to override the default Forbidden functions
@@ -54,7 +54,7 @@ final class DiscouragedFunctionsSniff extends GenericForbiddenFunctionsSniff
     {
         $data = [$function];
         $error = 'The use of function %s() is ';
-        $errorFunction = Inflector::camelCaps($function);
+        $errorFunction = Inflector::camelize($function);
 
         if ($this->error === true) {
             $error .= 'forbidden';

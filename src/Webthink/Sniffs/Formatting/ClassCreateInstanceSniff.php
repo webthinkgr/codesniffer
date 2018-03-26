@@ -6,8 +6,6 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
- * Class create instance Test.
- *
  * Checks the declaration of the class is correct.
  *
  * The reason that this was copied is because at that time the original had a bug

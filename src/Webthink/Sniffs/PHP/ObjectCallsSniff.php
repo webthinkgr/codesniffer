@@ -8,6 +8,10 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 /**
  * Checks that a call was not made to an object directly from an array.
  *
+ * The following is disallowed:
+ *
+ * `$myArray['value']->test();`
+ *
  * @author George Mponos <gmponos@gmail.com>
  * @license MIT
  */

@@ -112,6 +112,8 @@ final class MethodPerClassLimitSniff implements Sniff
      * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned
      * @param int $stackPtr The position of the current token in the stack passed in $tokens.
      * @return array
+     * @throws \PHP_CodeSniffer\Exceptions\RuntimeException
+     * @throws \PHP_CodeSniffer\Exceptions\TokenizerException
      */
     private function getClassMethods(File $phpcsFile, $stackPtr)
     {
@@ -154,6 +156,7 @@ final class MethodPerClassLimitSniff implements Sniff
      * @param File $phpcsFile
      * @param int $stackPtr
      * @return string
+     * @throws \PHP_CodeSniffer\Exceptions\TokenizerException
      */
     public function getModifier(File $phpcsFile, $stackPtr)
     {
