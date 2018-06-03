@@ -2,6 +2,13 @@
 
 All Notable changes of `webthink/codesniffer` will be documented in this file. See this [url](http://keepachangelog.com/)
 
+## v2.1.0 - DATE
+
+### Added
+- Added a new sniff `DeprecatedMissingDescriptionSniff`. The rule checks if the `@deprecated` annotation has any description
+after the annotation in order to make sure that the developer wrote the reason why the function was deprecated and 
+to use an alternative.
+
 ## v2.0.0 - 2018-03-25
 
 ### Changed
