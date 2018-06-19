@@ -27,9 +27,6 @@ final class DiscouragedFunctionsSniff extends GenericForbiddenFunctionsSniff
      * @inheritDoc
      */
     public $forbiddenFunctions = [
-        // aliases are discouraged.
-        'is_null' => null,
-
         // should only be used when dealing with legacy applications rawurlencode() should now be used instead.
         // See http://php.net/manual/en/function.rawurlencode.php and http://www.faqs.org/rfcs/rfc3986.html'
         'urlencode' => 'rawurlencode',

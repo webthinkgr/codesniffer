@@ -12,7 +12,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  *
  * @author George Mponos <gmponos@gmail.com>
  */
-class DeprecatedMissingDescriptionSniff implements Sniff
+final class DeprecatedMissingDescriptionSniff implements Sniff
 {
     /**
      * @inheritDoc

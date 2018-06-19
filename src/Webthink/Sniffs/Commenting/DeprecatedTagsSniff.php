@@ -9,7 +9,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * Checks the usage of deprecated PHPDoc tags according to PSR-5.
  *
  * @author George Mponos <gmponos@gmail.com>
- * @license MIT
+ * @deprecated Since PSR-5 is dropped this sniff does not make any sense anymore.
  */
 final class DeprecatedTagsSniff implements Sniff
 {

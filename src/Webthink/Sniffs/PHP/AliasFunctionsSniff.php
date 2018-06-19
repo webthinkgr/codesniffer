@@ -39,6 +39,7 @@ final class AliasFunctionsSniff implements Sniff
         'fputs' => 'fwrite',
         'chop' => 'rtrim',
         'print' => 'echo',
+        'rand' => 'mt_rand',
         'i18n_convert' => 'mb_convert_encoding',
         'i18n_discover_encoding' => 'mb_detect_encoding',
         'i18n_http_input' => 'mb_http_input',
@@ -80,7 +81,7 @@ final class AliasFunctionsSniff implements Sniff
         }
 
         $openingBrace = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), null, true);
-        if (!$openingBrace || $tokens[$openingBrace]['type'] !== 'T_OPEN_PARENTHESIS') {
+        if ($openingBrace === false || $tokens[$openingBrace]['type'] !== 'T_OPEN_PARENTHESIS') {
             return;
         }
 

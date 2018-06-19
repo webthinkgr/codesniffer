@@ -23,6 +23,9 @@ final class ForbiddenFunctionsSniff extends GenericForbiddenFunctionsSniff
         'var_dump' => null, //is not allowed.
         'print_r' => null,
 
+        'dd' => null, // Most of the frameworks have a function dump and die.
+        'is_null' => null, // This is an alias function. It should exist in AliasFunctionsSniff but it does not have an alternative method.
+
         //use Guzzle or another HttpClient library instead.
         'curl_init' => null,
         'curl_exec' => null,

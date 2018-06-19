@@ -8,6 +8,17 @@ All Notable changes of `webthink/codesniffer` will be documented in this file. S
 - Added a new sniff `DeprecatedMissingDescriptionSniff`. The rule checks if the `@deprecated` annotation has any description
 after the annotation in order to make sure that the developer wrote the reason why the function was deprecated and 
 to use an alternative.
+- Created a new sniff `ValidAbstractNameSniff` in order to enforce all abstract classes to have the prefix `Abstract`.
+- Created a new sniff `ValidExceptionNameSniff` in order to enforce all exceptions to have the suffix `Exception`.
+- Created a new sniff `OperatorSpacingSniff` in order to override some settings of the `OperatorSpacingSniff` from squizlabs.
+- Created a new sniff `YodaSniff` that disallows Yoda comparisons.
+
+### Changed
+- Deprecated the `LanguageConstructSpacingSniff` since codesniff fixed their bug. See:  https://github.com/squizlabs/PHP_CodeSniffer/pull/1337
+- Removed `is_null` from discouraged functions and moved it to ForbiddenFunctions along with `dd`.
+- Function `rand` should not be used there for it was added in `AliasFunctionsSniff` and `mt_rand` should be used instead. 
+- Since PSR-5 is dropped `DeprecatedTagsSniff` sniff does not make any sense any more and it is deprecated and it 
+will be removed in later version.
 
 ## v2.0.0 - 2018-03-25
 
