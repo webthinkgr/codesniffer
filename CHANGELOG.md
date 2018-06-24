@@ -2,6 +2,11 @@
 
 All Notable changes of `webthink/codesniffer` will be documented in this file. See this [url](http://keepachangelog.com/)
 
+## v2.1.1 - 2018-06-23
+
+## Bug
+- Fix a typo in ruleset about a sniff that was `Webthing` instead of `Webthink`
+
 ## v2.1.0 - 2018-06-19
 
 ### Added

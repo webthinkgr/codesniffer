@@ -122,7 +122,7 @@
         <exclude name="Webthink.NamingConventions.SingularClassName" />
     </rule>
     <!-- On tests you do not want to prefix the Test classes with `Abstract` -->
-    <rule ref="Webthing.NamingConventions.ValidAbstractName">
+    <rule ref="Webthink.NamingConventions.ValidAbstractName">
         <exclude-pattern>*/tests/*</exclude-pattern>
     </rule>
 
